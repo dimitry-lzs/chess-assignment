@@ -15,11 +15,21 @@ namespace Chess
         public Form1()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximumSize = new Size(1024, 1024);
+            this.MinimumSize = new Size(1024, 1024);
+
+            this.backgroundImage.Dock = DockStyle.Fill;
+            this.backgroundImage.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Hello World!");
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -28,34 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.backgroundImage = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.backgroundImage)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // backgroundImage
             // 
-            this.button1.Location = new System.Drawing.Point(334, 199);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 26);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.backgroundImage.Image = ((System.Drawing.Image)(resources.GetObject("backgroundImage.Image")));
+            this.backgroundImage.Location = new System.Drawing.Point(-61, 91);
+            this.backgroundImage.Name = "backgroundImage";
+            this.backgroundImage.Size = new System.Drawing.Size(1024, 1024);
+            this.backgroundImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.backgroundImage.TabIndex = 0;
+            this.backgroundImage.TabStop = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1600, 1098);
+            this.Controls.Add(this.backgroundImage);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Resize += new System.EventHandler(this.Form1_Resize);
+            ((System.ComponentModel.ISupportInitialize)(this.backgroundImage)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox backgroundImage;
     }
 }
 
