@@ -15,9 +15,32 @@ namespace Chess
         public Form1()
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximumSize = new Size(1024, 1024);
-            this.MinimumSize = new Size(1024, 1024);
+            float dpiX, dpiY;
+            using (Graphics graphics = this.CreateGraphics())
+            {
+                dpiX = graphics.DpiX;
+                dpiY = graphics.DpiY;
+            }
+
+            // Calculate the size of the form in logical pixels
+            int width = (int)(640 * (96 / dpiX));
+            int height = (int)(640 * (96 / dpiY));
+
+            // Set the client size of the form
+            this.ClientSize = new Size(width, height);
+
+            Bitmap transparentImage = new Bitmap(200, 200);
+            for (int y = 0; y < transparentImage.Height; ++y)
+            {
+                for (int x = 0; x < transparentImage.Width; ++x)
+                {
+                    transparentImage.SetPixel(x, y, Color.Transparent);
+                }
+            }
+
+            this.mainMenu.Image = transparentImage;
+            this.Controls.Add(this.mainMenu);
+
 
             this.backgroundImage.Dock = DockStyle.Fill;
             this.backgroundImage.SizeMode = PictureBoxSizeMode.StretchImage;
