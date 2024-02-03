@@ -39,28 +39,30 @@
             // 
             this.backgroundImage.Image = ((System.Drawing.Image)(resources.GetObject("backgroundImage.Image")));
             this.backgroundImage.Location = new System.Drawing.Point(0, 0);
+            this.backgroundImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.backgroundImage.Name = "backgroundImage";
-            this.backgroundImage.Size = new System.Drawing.Size(1000, 1000);
+            this.backgroundImage.Size = new System.Drawing.Size(600, 600);
             this.backgroundImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.backgroundImage.TabIndex = 0;
             this.backgroundImage.TabStop = false;
             // 
             // mainMenu
             // 
-            this.mainMenu.Location = new System.Drawing.Point(156, 87);
+            this.mainMenu.Location = new System.Drawing.Point(150, 100);
+            this.mainMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.mainMenu.Name = "mainMenu";
-            this.mainMenu.Size = new System.Drawing.Size(636, 742);
+            this.mainMenu.Size = new System.Drawing.Size(300, 400);
             this.mainMenu.TabIndex = 1;
             this.mainMenu.TabStop = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(998, 953);
+            this.ClientSize = new System.Drawing.Size(600, 600);
             this.Controls.Add(this.mainMenu);
             this.Controls.Add(this.backgroundImage);
-            this.Margin = new System.Windows.Forms.Padding(6);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Resize += new System.EventHandler(this.Form1_Resize);
