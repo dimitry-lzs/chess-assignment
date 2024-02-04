@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.startScreen1 = new Chess.StartScreen();
+            this.startScreen = new Chess.StartScreen();
             this.SuspendLayout();
             // 
-            // startScreen1
+            // startScreen
             // 
-            this.startScreen1.BackColor = System.Drawing.Color.Transparent;
-            this.startScreen1.Location = new System.Drawing.Point(239, 100);
-            this.startScreen1.Name = "startScreen1";
-            this.startScreen1.Size = new System.Drawing.Size(138, 227);
-            this.startScreen1.TabIndex = 0;
+            this.startScreen.BackColor = System.Drawing.Color.Transparent;
+            this.startScreen.Location = new System.Drawing.Point(239, 120);
+            this.startScreen.Name = "startScreen";
+            this.startScreen.Size = new System.Drawing.Size(138, 227);
+            this.startScreen.TabIndex = 0;
             // 
             // Form1
             // 
@@ -47,7 +47,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(600, 600);
-            this.Controls.Add(this.startScreen1);
+            this.Controls.Add(this.startScreen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.Text = "Form1";
@@ -57,7 +57,7 @@
 
         #endregion
 
-        private StartScreen startScreen1;
+        private StartScreen startScreen;
     }
 }
 

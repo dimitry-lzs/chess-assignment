@@ -20,6 +20,8 @@ namespace Chess
         private void startButton_Click(object sender, EventArgs e)
         {
             this.Visible = false;
+            this.Parent.Controls.Add(new ChessBoard());
+            this.Parent.ClientSize = new Size(800, 700);
         }
 
         private void exitButton_Click(object sender, EventArgs e)

@@ -15,7 +15,8 @@ namespace Chess
         public Form1()
         {
             InitializeComponent();
-
+            this.DoubleBuffered = true;
+            this.Controls.Add(this.startScreen);
         }
     }
 }
