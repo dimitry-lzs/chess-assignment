@@ -29,53 +29,78 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.backgroundImage = new System.Windows.Forms.PictureBox();
-            this.mainMenu = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.backgroundImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainMenu)).BeginInit();
+            this.startButton = new System.Windows.Forms.Label();
+            this.historyButton = new System.Windows.Forms.Label();
+            this.exitButton = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // backgroundImage
+            // startButton
             // 
-            this.backgroundImage.Image = ((System.Drawing.Image)(resources.GetObject("backgroundImage.Image")));
-            this.backgroundImage.Location = new System.Drawing.Point(0, 0);
-            this.backgroundImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.backgroundImage.Name = "backgroundImage";
-            this.backgroundImage.Size = new System.Drawing.Size(600, 600);
-            this.backgroundImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.backgroundImage.TabIndex = 0;
-            this.backgroundImage.TabStop = false;
+            this.startButton.AutoSize = true;
+            this.startButton.BackColor = System.Drawing.Color.Transparent;
+            this.startButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.startButton.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startButton.ForeColor = System.Drawing.Color.Moccasin;
+            this.startButton.Location = new System.Drawing.Point(256, 150);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(105, 45);
+            this.startButton.TabIndex = 2;
+            this.startButton.Text = "Start";
+            this.startButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // mainMenu
+            // historyButton
             // 
-            this.mainMenu.Location = new System.Drawing.Point(150, 100);
-            this.mainMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.mainMenu.Name = "mainMenu";
-            this.mainMenu.Size = new System.Drawing.Size(300, 400);
-            this.mainMenu.TabIndex = 1;
-            this.mainMenu.TabStop = false;
+            this.historyButton.AutoSize = true;
+            this.historyButton.BackColor = System.Drawing.Color.Transparent;
+            this.historyButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.historyButton.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.historyButton.ForeColor = System.Drawing.Color.Moccasin;
+            this.historyButton.Location = new System.Drawing.Point(240, 240);
+            this.historyButton.Name = "historyButton";
+            this.historyButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.historyButton.Size = new System.Drawing.Size(135, 45);
+            this.historyButton.TabIndex = 3;
+            this.historyButton.Text = "History";
+            this.historyButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // exitButton
+            // 
+            this.exitButton.AutoSize = true;
+            this.exitButton.BackColor = System.Drawing.Color.Transparent;
+            this.exitButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitButton.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitButton.ForeColor = System.Drawing.Color.Moccasin;
+            this.exitButton.Location = new System.Drawing.Point(266, 330);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.exitButton.Size = new System.Drawing.Size(83, 45);
+            this.exitButton.TabIndex = 4;
+            this.exitButton.Text = "Exit";
+            this.exitButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(600, 600);
-            this.Controls.Add(this.mainMenu);
-            this.Controls.Add(this.backgroundImage);
+            this.Controls.Add(this.startButton);
+            this.Controls.Add(this.historyButton);
+            this.Controls.Add(this.exitButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Resize += new System.EventHandler(this.Form1_Resize);
-            ((System.ComponentModel.ISupportInitialize)(this.backgroundImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainMenu)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox backgroundImage;
-        private System.Windows.Forms.PictureBox mainMenu;
+        private System.Windows.Forms.Label startButton;
+        private System.Windows.Forms.Label historyButton;
+        private System.Windows.Forms.Label exitButton;
     }
 }
 
