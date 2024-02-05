@@ -28,9 +28,9 @@ namespace Chess
         int X { get; set; }
         int Y { get; set; }
         bool HasMoved { get; set; }
-        FigureColor Color { get; }
+        FigureColor PieceColor { get; }
         FigureType Name { get; }
-        PictureBox Picture { get; }
+        PictureBox Sprite { get; }
 
         bool CanMove(int x, int y);
         void Move(int x, int y);

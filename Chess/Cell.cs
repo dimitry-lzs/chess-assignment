@@ -8,6 +8,27 @@ using System.Windows.Forms;
 
 namespace Chess
 {
+    internal class NonClickablePanel : Panel
+    {
+        public NonClickablePanel()
+        {
+            this.SetStyle(ControlStyles.Selectable, false);
+        }
+        protected override void WndProc(ref Message m)
+        {
+            const int WM_NCHITTEST = 0x0084;
+            const int HTTRANSPARENT = (-1);
+
+            if (m.Msg == WM_NCHITTEST)
+            {
+                m.Result = (IntPtr)HTTRANSPARENT;
+            }
+            else
+            {
+                base.WndProc(ref m);
+            }
+        }
+    }
     public class Cell
     {
         public const int SQUARE_SIZE = 64;
@@ -20,10 +41,10 @@ namespace Chess
         {
             this.X = x;
             this.Y = y;
-            this.Panel = new Panel();
-            Panel.BackColor = (x + y) % 2 == 0 ? Color.Moccasin : Color.FromArgb(101, 67, 33);
-            Panel.Location = new Point(x * SQUARE_SIZE, y * SQUARE_SIZE);
-            Panel.Size = new Size(SQUARE_SIZE, SQUARE_SIZE);
+            this.Panel = new NonClickablePanel();
+            this.Panel.BackColor = Color.Transparent;
+            this.Panel.Location = new Point(x * SQUARE_SIZE, y * SQUARE_SIZE);
+            this.Panel.Size = new Size(SQUARE_SIZE, SQUARE_SIZE);
         }
         public Figure Figure
         {
@@ -36,9 +57,12 @@ namespace Chess
                 _Figure = value;
                 if (value != null)
                 {
-                    Panel.Controls.Add(value.picture);
+
+                    value.Sprite.Location = new Point(this.X * SQUARE_SIZE + ((SQUARE_SIZE - value.Sprite.Width) / 2), this.Y * SQUARE_SIZE + ((SQUARE_SIZE - value.Sprite.Height) / 2));
+                    this.Panel.Parent.Controls.Add(value.Sprite);
+                    value.Sprite.BringToFront();
                 }
             }
-        }   
+        }
     }
 }

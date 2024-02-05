@@ -9,15 +9,15 @@ namespace Chess
 {
     public class Bishop : Figure
     {
-        public Bishop(FigureColor color, int x, int y) : base(FigureType.Bishop, color, x, y)
+        public Bishop(FigureColor color, int x, int y, ChessBoard chessBoard) : base(FigureType.Bishop, color, x, y)
         {
             if (color == FigureColor.White)
             {
-                this.picture.Image = System.Drawing.Image.FromFile("Chess_blt60.png");
+                this.Sprite.Image = System.Drawing.Image.FromFile("Chess_blt60.png");
             }
             else
             {
-                this.picture.Image = System.Drawing.Image.FromFile("Chess_bdt60.png");
+                this.Sprite.Image = System.Drawing.Image.FromFile("Chess_bdt60.png");
             }
         }
 

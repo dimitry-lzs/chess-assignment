@@ -9,15 +9,15 @@ namespace Chess
 {
     public class King : Figure
     {
-        public King(FigureColor color, int x, int y) : base(FigureType.King, color, x, y)
+        public King(FigureColor color, int x, int y, ChessBoard chessBoard) : base(FigureType.King, color, x, y)
         {
             if (color == FigureColor.White)
             {
-                this.picture.Image = Image.FromFile("Chess_klt60.png");
+                this.Sprite.Image = Image.FromFile("Chess_klt60.png");
             }
             else
             {
-                this.picture.Image = Image.FromFile("Chess_kdt60.png");
+                this.Sprite.Image = Image.FromFile("Chess_kdt60.png");
             }
         }
 

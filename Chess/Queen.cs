@@ -8,15 +8,15 @@ namespace Chess
 {
     public class Queen : Figure
     {
-        public Queen(FigureColor color, int x, int y) : base(FigureType.Queen, color, x, y)
+        public Queen(FigureColor color, int x, int y, ChessBoard chessboard) : base(FigureType.Queen, color, x, y)
         {
             if (color == FigureColor.White)
             {
-                this.picture.Image = System.Drawing.Image.FromFile("Chess_qlt60.png");
+                this.Sprite.Image = System.Drawing.Image.FromFile("Chess_qlt60.png");
             }
             else
             {
-                this.picture.Image = System.Drawing.Image.FromFile("Chess_qdt60.png");
+                this.Sprite.Image = System.Drawing.Image.FromFile("Chess_qdt60.png");
             }
         }
 
