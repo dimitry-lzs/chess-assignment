@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Media;
 using System.Windows.Forms;
 
 namespace Chess
@@ -35,17 +36,23 @@ namespace Chess
         public FigureType Name { get; }
         public bool HasMoved { get; set; }
 
-        public NonClickablePictureBox Sprite { get; set; }
+        private Image _Sprite;
+
+        public Image Sprite { get
+            {
+                return this._Sprite;
+            } set {
+                this._Sprite = value;
+                this.ImageLocation = new Point(this.X * Cell.SQUARE_SIZE, this.Y * Cell.SQUARE_SIZE);
+            }
+        }
+        public Point ImageLocation;
 
         public Figure(FigureType figureType, FigureColor color)
         {
             this.Name = figureType;
             this.PieceColor = color;
             this.HasMoved = false;
-            this.Sprite = new NonClickablePictureBox();
-            this.Sprite.BackColor = System.Drawing.Color.Transparent;
-            this.Sprite.Size = new Size(Cell.SQUARE_SIZE, Cell.SQUARE_SIZE);
-            this.Sprite.Cursor = System.Windows.Forms.Cursors.Hand;
         }
 
         public abstract bool CanMove(int x, int y);

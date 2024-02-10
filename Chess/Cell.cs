@@ -45,6 +45,7 @@ namespace Chess
             this.Panel.BackColor = Color.Transparent;
             this.Panel.Location = new Point(x * SQUARE_SIZE, y * SQUARE_SIZE);
             this.Panel.Size = new Size(SQUARE_SIZE, SQUARE_SIZE);
+
         }
         public Figure Figure
         {
@@ -59,9 +60,11 @@ namespace Chess
                 {
                     value.X = this.X;
                     value.Y = this.Y;
-                    value.Sprite.Location = new Point(this.X * SQUARE_SIZE + ((SQUARE_SIZE - value.Sprite.Width) / 2), this.Y * SQUARE_SIZE + ((SQUARE_SIZE - value.Sprite.Height) / 2));
-                    this.Panel.Parent.Controls.Add(value.Sprite);
-                    value.Sprite.BringToFront();
+                    //value.ImageLocation = new Point(this.X * SQUARE_SIZE + ((SQUARE_SIZE - value.Sprite.Width) / 2), this.Y * SQUARE_SIZE + ((SQUARE_SIZE - value.Sprite.Height) / 2));
+                    value.ImageLocation = this.Panel.Location;
+                    // value.Sprite.Location = new Point(this.X * SQUARE_SIZE + ((SQUARE_SIZE - value.Sprite.Width) / 2), this.Y * SQUARE_SIZE + ((SQUARE_SIZE - value.Sprite.Height) / 2));
+                    // this.Panel.Parent.Controls.Add(value.Sprite);
+                    // value.Sprite.BringToFront();
                 }
             }
         }

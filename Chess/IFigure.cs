@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,7 +31,7 @@ namespace Chess
         bool HasMoved { get; set; }
         FigureColor PieceColor { get; }
         FigureType Name { get; }
-        PictureBox Sprite { get; }
+        Image Sprite { get; }
 
         bool CanMove(int x, int y);
         void Move(int x, int y);

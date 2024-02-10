@@ -11,32 +11,76 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows;
+using System.Media;
 
 namespace Chess
 {
+    internal class DraggingCanvas : Panel
+    {
+        private Figure _DraggedFigure;
+        public Figure DraggedFigure {
+            get
+            {
+                return this._DraggedFigure;
+            }
+            set
+            {
+                this._DraggedFigure = value;
+                this.Refresh();
+            }
+        }
+        public DraggingCanvas()
+        {
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer |
+                          ControlStyles.AllPaintingInWmPaint |
+                          ControlStyles.UserPaint |
+                          ControlStyles.SupportsTransparentBackColor, true);
+            this.BackColor = Color.Transparent;
+            this.DoubleBuffered = true;
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            if (this.DraggedFigure == null) return;
+
+            if (this.DraggedFigure.ImageLocation != Point.Empty)
+            {
+                e.Graphics.DrawImage(this.DraggedFigure.Sprite, this.DraggedFigure.ImageLocation);
+            }
+        }
+    }
     public partial class ChessBoard : UserControl
     {
         private const int BOARD_SIZE = 8;
         private Cell[,] board = new Cell[BOARD_SIZE, BOARD_SIZE];
         private Figure _SelectedFigure;
+        private DraggingCanvas overlay;
+        private SoundPlayer RaiseFigureSound;
+        private SoundPlayer PlaceFigureSound;
 
         public Figure SelectedFigure {
             get { return _SelectedFigure; }
             set {
-                if (value != null) value.Sprite.BringToFront();
                 this._SelectedFigure = value;
+                this.overlay.DraggedFigure = value;
             }
         }
 
         public ChessBoard()
         {
             InitializeComponent();
-            this.SetStyle(
-                System.Windows.Forms.ControlStyles.UserPaint |
-                System.Windows.Forms.ControlStyles.AllPaintingInWmPaint |
-                System.Windows.Forms.ControlStyles.OptimizedDoubleBuffer,
-                true);
+            this.SetStyle(ControlStyles.UserPaint |
+                          ControlStyles.AllPaintingInWmPaint |
+                          ControlStyles.OptimizedDoubleBuffer |
+                          ControlStyles.ResizeRedraw, true);
+            this.UpdateStyles();
+            this.overlay = new DraggingCanvas();
+            this.Controls.Add(this.overlay);
+            this.DoubleBuffered = true;
             this.FillGrid();
+            this.RaiseFigureSound = new SoundPlayer("raiseFigure.wav");
+            this.PlaceFigureSound = new SoundPlayer("placeFigure.wav");
         }
 
         private void FillGrid()
@@ -52,8 +96,10 @@ namespace Chess
             }
         }
 
+        // Initial board setup
         private void InitBoard()
         {
+            // White figures
             this.GetCell('a', 8).Figure = new Rook(FigureColor.White);
             this.GetCell('b', 8).Figure = new Knight(FigureColor.White);
             this.GetCell('c', 8).Figure = new Bishop(FigureColor.White);
@@ -62,6 +108,7 @@ namespace Chess
             this.GetCell('f', 8).Figure = new Bishop(FigureColor.White);
             this.GetCell('g', 8).Figure = new Knight(FigureColor.White);
             this.GetCell('h', 8).Figure = new Rook(FigureColor.White);
+            // White Pawns
             this.GetCell('a', 7).Figure = new Pawn(FigureColor.White);
             this.GetCell('b', 7).Figure = new Pawn(FigureColor.White);
             this.GetCell('c', 7).Figure = new Pawn(FigureColor.White);
@@ -70,6 +117,8 @@ namespace Chess
             this.GetCell('f', 7).Figure = new Pawn(FigureColor.White);
             this.GetCell('g', 7).Figure = new Pawn(FigureColor.White);
             this.GetCell('h', 7).Figure = new Pawn(FigureColor.White);
+
+            // Black Pawns
             this.GetCell('a', 2).Figure = new Pawn(FigureColor.Black);
             this.GetCell('b', 2).Figure = new Pawn(FigureColor.Black);
             this.GetCell('c', 2).Figure = new Pawn(FigureColor.Black);
@@ -78,6 +127,7 @@ namespace Chess
             this.GetCell('f', 2).Figure = new Pawn(FigureColor.Black);
             this.GetCell('g', 2).Figure = new Pawn(FigureColor.Black);
             this.GetCell('h', 2).Figure = new Pawn(FigureColor.Black);
+            // Black figures
             this.GetCell('a', 1).Figure = new Rook(FigureColor.Black);
             this.GetCell('b', 1).Figure = new Knight(FigureColor.Black);
             this.GetCell('c', 1).Figure = new Bishop(FigureColor.Black);
@@ -95,9 +145,29 @@ namespace Chess
             this.InitBoard();
             this.BackgroundImage = Image.FromFile("Board.png");
             this.BackgroundImageLayout = ImageLayout.Stretch;
-            this.MouseMove += ChessBoard_MouseMove;
-            this.MouseDown += ChessBoard_MouseDown;
-            this.MouseUp += ChessBoard_MouseUp;
+            this.overlay.Size = this.Size;
+            this.overlay.Location = new Point(0, 0);
+            this.overlay.MouseDown += ChessBoard_MouseDown;
+            this.overlay.MouseMove += ChessBoard_MouseMove;
+            this.overlay.MouseUp += ChessBoard_MouseUp;
+            this.Controls.SetChildIndex(this.overlay, 0);
+        }
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            Graphics g = e.Graphics;
+
+            for (int x = 0; x < BOARD_SIZE; x++)
+            {
+                for (int y = 0; y < BOARD_SIZE; y++)
+                {
+                    Cell cell = this.board[x, y];
+                    if (cell.Figure != null)
+                    {
+                        g.DrawImage(cell.Figure.Sprite, cell.Figure.ImageLocation.X, cell.Figure.ImageLocation.Y, Cell.SQUARE_SIZE, Cell.SQUARE_SIZE);
+                    }
+                }
+            }
         }
         private int ConvertColumnCharToIndex(char column)
         {
@@ -123,16 +193,21 @@ namespace Chess
         private void ChessBoard_MouseDown(object sender, MouseEventArgs e)
         {
             this.SelectedFigure = this.GetFigure(e.X / Cell.SQUARE_SIZE, e.Y / Cell.SQUARE_SIZE);
+            if (this.SelectedFigure != null)
+            {
+                this.RaiseFigureSound.Play();
+            }
         }
         private void ChessBoard_MouseMove(object sender, MouseEventArgs e)
         {
             if (this.SelectedFigure != null)
             {
-                this.Controls.SetChildIndex(this.SelectedFigure.Sprite, 0);
                 Point point = new Point(e.X - this.SelectedFigure.Sprite.Width / 2, e.Y - this.SelectedFigure.Sprite.Height / 2);
-                if (this.SelectedFigure.Sprite.Location != point)
+                if (this.SelectedFigure.ImageLocation != point)
                 {
-                    this.SelectedFigure.Sprite.Location = point;
+                    this.SelectedFigure.ImageLocation = point;
+                    this.overlay.Refresh();
+                    this.Controls.SetChildIndex(this.overlay, 0);
                 }
             }
         }
@@ -150,12 +225,14 @@ namespace Chess
             {
                 int cellX = x / Cell.SQUARE_SIZE;
                 int cellY = y / Cell.SQUARE_SIZE;
+
                 if (figure.CanMove(cellX, cellY))
                 {
                     this.board[figure.X, figure.Y].Figure = null;
                     this.board[cellX, cellY].Figure = figure;
                     figure.X = cellX;
                     figure.Y = cellY;
+                    this.PlaceFigureSound.Play();
                 }
                 else
                 {
