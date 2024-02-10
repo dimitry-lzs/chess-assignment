@@ -8,7 +8,7 @@ namespace Chess
 {
     public class Knight : Figure
     {
-        public Knight(FigureColor color, int x, int y, ChessBoard chessBoard) : base(FigureType.Knight, color, x, y)
+        public Knight(FigureColor color) : base(FigureType.Knight, color)
         {
             if (color == FigureColor.White)
             {

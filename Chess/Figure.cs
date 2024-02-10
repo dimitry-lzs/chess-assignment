@@ -9,6 +9,7 @@ namespace Chess
         public NonClickablePictureBox()
         {
             this.SetStyle(ControlStyles.Selectable, false);
+            this.DoubleBuffered = true;
         }
 
         protected override void WndProc(ref Message m)
@@ -36,12 +37,10 @@ namespace Chess
 
         public NonClickablePictureBox Sprite { get; set; }
 
-        public Figure(FigureType figureType, FigureColor color, int x, int y)
+        public Figure(FigureType figureType, FigureColor color)
         {
             this.Name = figureType;
             this.PieceColor = color;
-            this.X = x;
-            this.Y = y;
             this.HasMoved = false;
             this.Sprite = new NonClickablePictureBox();
             this.Sprite.BackColor = System.Drawing.Color.Transparent;

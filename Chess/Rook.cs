@@ -8,7 +8,7 @@ namespace Chess
 {
     public class Rook : Figure
     {
-        public Rook(FigureColor color, int x, int y, ChessBoard chessBoard) : base(FigureType.Rook, color, x, y)
+        public Rook(FigureColor color) : base(FigureType.Rook, color)
         {
             if (color == FigureColor.White)
             {

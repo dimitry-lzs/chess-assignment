@@ -57,7 +57,8 @@ namespace Chess
                 _Figure = value;
                 if (value != null)
                 {
-
+                    value.X = this.X;
+                    value.Y = this.Y;
                     value.Sprite.Location = new Point(this.X * SQUARE_SIZE + ((SQUARE_SIZE - value.Sprite.Width) / 2), this.Y * SQUARE_SIZE + ((SQUARE_SIZE - value.Sprite.Height) / 2));
                     this.Panel.Parent.Controls.Add(value.Sprite);
                     value.Sprite.BringToFront();

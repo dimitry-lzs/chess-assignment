@@ -8,7 +8,7 @@ namespace Chess
 {
     public class Pawn : Figure
     {
-        public Pawn(FigureColor color, int x, int y, ChessBoard chessBoard) : base(FigureType.Pawn, color, x, y)
+        public Pawn(FigureColor color) : base(FigureType.Pawn, color)
         {
             if (color == FigureColor.White)
             {

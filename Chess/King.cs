@@ -9,7 +9,7 @@ namespace Chess
 {
     public class King : Figure
     {
-        public King(FigureColor color, int x, int y, ChessBoard chessBoard) : base(FigureType.King, color, x, y)
+        public King(FigureColor color) : base(FigureType.King, color)
         {
             if (color == FigureColor.White)
             {

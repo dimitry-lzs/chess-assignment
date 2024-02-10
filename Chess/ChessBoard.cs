@@ -31,12 +31,11 @@ namespace Chess
         public ChessBoard()
         {
             InitializeComponent();
-            this.DoubleBuffered = true;
-            this.SetStyle(ControlStyles.DoubleBuffer, true);
-            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
-            this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
-            this.SetStyle(ControlStyles.UserPaint, true);
-            this.UpdateStyles();
+            this.SetStyle(
+                System.Windows.Forms.ControlStyles.UserPaint |
+                System.Windows.Forms.ControlStyles.AllPaintingInWmPaint |
+                System.Windows.Forms.ControlStyles.OptimizedDoubleBuffer,
+                true);
             this.FillGrid();
         }
 
@@ -55,41 +54,38 @@ namespace Chess
 
         private void InitBoard()
         {
-            /*
-            this.board[0, 0].Figure = new Rook(FigureColor.White, 0, 0, this);
-            this.board[1, 0].Figure = new Knight(FigureColor.White, 1, 0, this);
-            this.board[2, 0].Figure = new Bishop(FigureColor.White, 2, 0, this);
-            this.board[3, 0].Figure = new Queen(FigureColor.White, 3, 0, this);
-            this.board[4, 0].Figure = new King(FigureColor.White, 4, 0, this);
-            this.board[5, 0].Figure = new Bishop(FigureColor.White, 5, 0, this);
-            this.board[6, 0].Figure = new Knight(FigureColor.White, 6, 0, this);
-            this.board[7, 0].Figure = new Rook(FigureColor.White, 7, 0, this);
-            this.board[0, 1].Figure = new Pawn(FigureColor.White, 0, 1, this);
-            this.board[1, 1].Figure = new Pawn(FigureColor.White, 1, 1, this);
-            this.board[2, 1].Figure = new Pawn(FigureColor.White, 2, 1, this);
-            this.board[3, 1].Figure = new Pawn(FigureColor.White, 3, 1, this);
-            this.board[4, 1].Figure = new Pawn(FigureColor.White, 4, 1, this);
-            this.board[5, 1].Figure = new Pawn(FigureColor.White, 5, 1, this);
-            this.board[6, 1].Figure = new Pawn(FigureColor.White, 6, 1, this);
-            this.board[7, 1].Figure = new Pawn(FigureColor.White, 7, 1, this);
-            this.board[0, 6].Figure = new Pawn(FigureColor.Black, 0, 6, this);
-            this.board[1, 6].Figure = new Pawn(FigureColor.Black, 1, 6, this);
-            this.board[2, 6].Figure = new Pawn(FigureColor.Black, 2, 6, this);
-            this.board[3, 6].Figure = new Pawn(FigureColor.Black, 3, 6, this);
-            this.board[4, 6].Figure = new Pawn(FigureColor.Black, 4, 6, this);
-            this.board[5, 6].Figure = new Pawn(FigureColor.Black, 5, 6, this);
-            this.board[6, 6].Figure = new Pawn(FigureColor.Black, 6, 6, this);
-            this.board[7, 6].Figure = new Pawn(FigureColor.Black, 7, 6, this);
-            this.board[0, 7].Figure = new Rook(FigureColor.Black, 0, 7, this);
-            this.board[1, 7].Figure = new Knight(FigureColor.Black, 1, 7, this);
-            this.board[2, 7].Figure = new Bishop(FigureColor.Black, 2, 7, this);
-            this.board[3, 7].Figure = new Queen(FigureColor.Black, 3, 7, this);
-            this.board[4, 7].Figure = new King(FigureColor.Black, 4, 7, this);
-            this.board[5, 7].Figure = new Bishop(FigureColor.Black, 5, 7, this);
-            this.board[6, 7].Figure = new Knight(FigureColor.Black, 6, 7, this);
-            this.board[7, 7].Figure = new Rook(FigureColor.Black, 7, 7, this);
-            */
-            this.GetCell('a', 1).Figure = new Rook(FigureColor.Black, 0, 7, this);
+            this.GetCell('a', 8).Figure = new Rook(FigureColor.White);
+            this.GetCell('b', 8).Figure = new Knight(FigureColor.White);
+            this.GetCell('c', 8).Figure = new Bishop(FigureColor.White);
+            this.GetCell('d', 8).Figure = new Queen(FigureColor.White);
+            this.GetCell('e', 8).Figure = new King(FigureColor.White);
+            this.GetCell('f', 8).Figure = new Bishop(FigureColor.White);
+            this.GetCell('g', 8).Figure = new Knight(FigureColor.White);
+            this.GetCell('h', 8).Figure = new Rook(FigureColor.White);
+            this.GetCell('a', 7).Figure = new Pawn(FigureColor.White);
+            this.GetCell('b', 7).Figure = new Pawn(FigureColor.White);
+            this.GetCell('c', 7).Figure = new Pawn(FigureColor.White);
+            this.GetCell('d', 7).Figure = new Pawn(FigureColor.White);
+            this.GetCell('e', 7).Figure = new Pawn(FigureColor.White);
+            this.GetCell('f', 7).Figure = new Pawn(FigureColor.White);
+            this.GetCell('g', 7).Figure = new Pawn(FigureColor.White);
+            this.GetCell('h', 7).Figure = new Pawn(FigureColor.White);
+            this.GetCell('a', 2).Figure = new Pawn(FigureColor.Black);
+            this.GetCell('b', 2).Figure = new Pawn(FigureColor.Black);
+            this.GetCell('c', 2).Figure = new Pawn(FigureColor.Black);
+            this.GetCell('d', 2).Figure = new Pawn(FigureColor.Black);
+            this.GetCell('e', 2).Figure = new Pawn(FigureColor.Black);
+            this.GetCell('f', 2).Figure = new Pawn(FigureColor.Black);
+            this.GetCell('g', 2).Figure = new Pawn(FigureColor.Black);
+            this.GetCell('h', 2).Figure = new Pawn(FigureColor.Black);
+            this.GetCell('a', 1).Figure = new Rook(FigureColor.Black);
+            this.GetCell('b', 1).Figure = new Knight(FigureColor.Black);
+            this.GetCell('c', 1).Figure = new Bishop(FigureColor.Black);
+            this.GetCell('d', 1).Figure = new Queen(FigureColor.Black);
+            this.GetCell('e', 1).Figure = new King(FigureColor.Black);
+            this.GetCell('f', 1).Figure = new Bishop(FigureColor.Black);
+            this.GetCell('g', 1).Figure = new Knight(FigureColor.Black);
+            this.GetCell('h', 1).Figure = new Rook(FigureColor.Black);
         }
 
         private void ChessBoard_Load(object sender, EventArgs e)
@@ -133,7 +129,11 @@ namespace Chess
             if (this.SelectedFigure != null)
             {
                 this.Controls.SetChildIndex(this.SelectedFigure.Sprite, 0);
-                this.SelectedFigure.Sprite.Location = new Point(e.X - this.SelectedFigure.Sprite.Width / 2, e.Y - this.SelectedFigure.Sprite.Height / 2);
+                Point point = new Point(e.X - this.SelectedFigure.Sprite.Width / 2, e.Y - this.SelectedFigure.Sprite.Height / 2);
+                if (this.SelectedFigure.Sprite.Location != point)
+                {
+                    this.SelectedFigure.Sprite.Location = point;
+                }
             }
         }
         private void ChessBoard_MouseUp(object sender, MouseEventArgs e)

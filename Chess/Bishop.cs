@@ -9,7 +9,7 @@ namespace Chess
 {
     public class Bishop : Figure
     {
-        public Bishop(FigureColor color, int x, int y, ChessBoard chessBoard) : base(FigureType.Bishop, color, x, y)
+        public Bishop(FigureColor color) : base(FigureType.Bishop, color)
         {
             if (color == FigureColor.White)
             {
