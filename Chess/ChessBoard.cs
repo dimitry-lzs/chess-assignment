@@ -46,7 +46,8 @@ namespace Chess
 
             if (this.DraggedFigure.ImageLocation != Point.Empty)
             {
-                e.Graphics.DrawImage(this.DraggedFigure.Sprite, this.DraggedFigure.ImageLocation);
+                e.Graphics.DrawImage(this.DraggedFigure.Sprite, this.DraggedFigure.ImageLocation.X, this.DraggedFigure.ImageLocation.Y, Cell.SQUARE_SIZE + 6, Cell.SQUARE_SIZE + 6);
+
             }
         }
     }
@@ -162,7 +163,7 @@ namespace Chess
                 for (int y = 0; y < BOARD_SIZE; y++)
                 {
                     Cell cell = this.board[x, y];
-                    if (cell.Figure != null)
+                    if (cell.Figure != null && cell.Figure != this.SelectedFigure)
                     {
                         g.DrawImage(cell.Figure.Sprite, cell.Figure.ImageLocation.X, cell.Figure.ImageLocation.Y, Cell.SQUARE_SIZE, Cell.SQUARE_SIZE);
                     }
