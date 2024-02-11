@@ -32,16 +32,31 @@ namespace Chess
                     {
                         if (this.X == x && (y == 2 || y == 3))
                         {
+                            if (y == 3)
+                            {
+                                this.Board.EnPassantTarget = this;
+                            } else
+                            {
+                                this.Board.EnPassantTarget = null;
+                            }
                             return true;
                         }
                     }
                     if (this.X == x && y == this.Y + 1)
                     {
+                        this.Board.EnPassantTarget = null;
+                        return true;
+                    }
+                    Figure enPassantCell = this.Board.GetFigure(x, y - 1);
+                    if (enPassantCell != null && enPassantCell == this.Board.EnPassantTarget)
+                    {
+                        this.Board.PerformEnPassant();
                         return true;
                     }
                 }
                 else if (Math.Abs(this.X - x) == 1 && y == this.Y + 1 && targetCellFigure.PieceColor == FigureColor.Black)
                 {
+                    this.Board.EnPassantTarget = null;
                     return true;
                 }
             }
@@ -53,15 +68,30 @@ namespace Chess
                     {
                         if (this.X == x && (y == 5 || y == 4))
                         {
+                            if (y == 4)
+                            {
+                                this.Board.EnPassantTarget = this;
+                            } else
+                            {
+                                this.Board.EnPassantTarget = null;
+                            }
                             return true;
                         }
                     }
                     if (this.X == x && y == this.Y - 1)
                     {
+                        this.Board.EnPassantTarget = null;
+                        return true;
+                    }
+                    Figure enPassantCell = this.Board.GetFigure(x, y + 1);
+                    if (enPassantCell != null && enPassantCell == this.Board.EnPassantTarget)
+                    {
+                        this.Board.PerformEnPassant();
                         return true;
                     }
                 } else if (Math.Abs(this.X - x) == 1 && y == this.Y - 1 && targetCellFigure.PieceColor == FigureColor.White)
                 {
+                    this.Board.EnPassantTarget = null;
                     return true;
                 }
             }

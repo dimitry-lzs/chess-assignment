@@ -99,8 +99,9 @@ namespace Chess
     {
         private const int BOARD_SIZE = 8;
         private Cell[,] board = new Cell[BOARD_SIZE, BOARD_SIZE];
-        private Figure _SelectedFigure;
         private DraggingCanvas overlay;
+        public Figure EnPassantTarget { get; set; }
+
 
         public SoundPlayer RaiseFigureSound;
         public SoundPlayer PlaceFigureSound;
@@ -235,6 +236,11 @@ namespace Chess
                 int cellX = x / Cell.SQUARE_SIZE;
                 int cellY = y / Cell.SQUARE_SIZE;
 
+                if (figure.Name != FigureType.Pawn)
+                {
+                    this.EnPassantTarget = null;
+                }
+
                 if (figure.CanMove(cellX, cellY))
                 {
                     this.board[figure.X, figure.Y].Figure = null;
@@ -285,6 +291,10 @@ namespace Chess
             newFigure.Board = pawn.Board;
             this.board[pawn.X, pawn.Y].Figure = newFigure;
             this.PromotionSound.Play();
+        }
+        public void PerformEnPassant()
+        {
+            this.board[this.EnPassantTarget.X, this.EnPassantTarget.Y].Figure = null;
         }
     }
 }
