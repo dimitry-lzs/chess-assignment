@@ -104,7 +104,7 @@ namespace Chess
 
         public SoundPlayer RaiseFigureSound;
         public SoundPlayer PlaceFigureSound;
-
+        public SoundPlayer PromotionSound;
 
         public ChessBoard()
         {
@@ -121,6 +121,7 @@ namespace Chess
             this.FillGrid();
             this.RaiseFigureSound = new SoundPlayer("raiseFigure.wav");
             this.PlaceFigureSound = new SoundPlayer("placeFigure.wav");
+            this.PromotionSound = new SoundPlayer("promotion.wav");
         }
 
         private void FillGrid()
@@ -241,12 +242,49 @@ namespace Chess
                     figure.X = cellX;
                     figure.Y = cellY;
                     this.PlaceFigureSound.Play();
+
+                    if (figure.Name == FigureType.Pawn)
+                    {
+                        if (figure.PieceColor == FigureColor.White && figure.Y == 7)
+                        {
+                            (figure as Pawn).Promote();
+                        }
+                        else if (figure.PieceColor == FigureColor.Black && figure.Y == 0)
+                        {
+                            (figure as Pawn).Promote();
+                        }
+                    }
                 }
                 else
                 {
                     this.board[figure.X, figure.Y].Figure = figure;
                 }
             }
+        }
+        public void PromotePawn(Figure pawn, FigureType figureType)
+        {
+            Figure newFigure = null;
+            switch (figureType)
+            {
+                case FigureType.Queen:
+                    newFigure = new Queen(pawn.PieceColor);
+                    break;
+                case FigureType.Rook:
+                    newFigure = new Rook(pawn.PieceColor);
+                    break;
+                case FigureType.Bishop:
+                    newFigure = new Bishop(pawn.PieceColor);
+                    break;
+                case FigureType.Knight:
+                    newFigure = new Knight(pawn.PieceColor);
+                    break;
+            }
+            newFigure.X = pawn.X;
+            newFigure.Y = pawn.Y;
+            newFigure.ImageLocation = pawn.ImageLocation;
+            newFigure.Board = pawn.Board;
+            this.board[pawn.X, pawn.Y].Figure = newFigure;
+            this.PromotionSound.Play();
         }
     }
 }

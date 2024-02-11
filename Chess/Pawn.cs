@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Chess
 {
@@ -65,6 +66,18 @@ namespace Chess
                 }
             }
             return false;
+        }
+
+        public void Promote()
+        {
+            using (PromotionForm promotionForm = new PromotionForm(this.PieceColor))
+            {
+                if (promotionForm.ShowDialog() == DialogResult.OK)
+                {
+                    FigureType promotion = promotionForm.selectedPromotion;
+                    this.Board.PromotePawn(this, promotion);
+                }
+            }
         }
     }
 }
