@@ -56,11 +56,21 @@ namespace Chess
         {
             if (this.DraggedFigure != null)
             {
+                Cursor.Current = Cursors.Hand;
                 Point point = new Point(e.X - this.DraggedFigure.Sprite.Width / 2, e.Y - this.DraggedFigure.Sprite.Height / 2);
                 if (this.DraggedFigure.ImageLocation != point)
                 {
                     this.DraggedFigure.ImageLocation = point;
                     this.Refresh();
+                }
+            } else
+            {
+                if (this.chessBoard.GetFigure(e.X / Cell.SQUARE_SIZE, e.Y / Cell.SQUARE_SIZE) != null)
+                {
+                    Cursor.Current = Cursors.Hand;
+                } else
+                {
+                    Cursor.Current = Cursors.Default;
                 }
             }
         }
