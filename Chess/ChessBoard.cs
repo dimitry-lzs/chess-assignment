@@ -18,6 +18,7 @@ namespace Chess
     internal class DraggingCanvas : Panel
     {
         private Figure _DraggedFigure;
+        private ChessBoard chessBoard;
         public Figure DraggedFigure {
             get
             {
@@ -29,7 +30,7 @@ namespace Chess
                 this.Refresh();
             }
         }
-        public DraggingCanvas()
+        public DraggingCanvas(ChessBoard chessBoard)
         {
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer |
                           ControlStyles.AllPaintingInWmPaint |
@@ -37,6 +38,39 @@ namespace Chess
                           ControlStyles.SupportsTransparentBackColor, true);
             this.BackColor = Color.Transparent;
             this.DoubleBuffered = true;
+            this.chessBoard = chessBoard;
+            this.MouseDown += ChessBoard_MouseDown;
+            this.MouseMove += ChessBoard_MouseMove;
+            this.MouseUp += ChessBoard_MouseUp;
+        }
+        private void ChessBoard_MouseDown(object sender, MouseEventArgs e)
+        {
+            Figure draggedFigure = this.chessBoard.GetFigure(e.X / Cell.SQUARE_SIZE, e.Y / Cell.SQUARE_SIZE);
+            if (draggedFigure != null)
+            {
+                this.DraggedFigure = draggedFigure;
+                this.chessBoard.RaiseFigureSound.Play();
+            }
+        }
+        private void ChessBoard_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (this.DraggedFigure != null)
+            {
+                Point point = new Point(e.X - this.DraggedFigure.Sprite.Width / 2, e.Y - this.DraggedFigure.Sprite.Height / 2);
+                if (this.DraggedFigure.ImageLocation != point)
+                {
+                    this.DraggedFigure.ImageLocation = point;
+                    this.Refresh();
+                }
+            }
+        }
+        private void ChessBoard_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (this.DraggedFigure != null)
+            {
+                this.chessBoard.PlaceFigure(this.DraggedFigure, e.X, e.Y);
+                this.DraggedFigure = null;
+            }
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -57,16 +91,10 @@ namespace Chess
         private Cell[,] board = new Cell[BOARD_SIZE, BOARD_SIZE];
         private Figure _SelectedFigure;
         private DraggingCanvas overlay;
-        private SoundPlayer RaiseFigureSound;
-        private SoundPlayer PlaceFigureSound;
 
-        public Figure SelectedFigure {
-            get { return _SelectedFigure; }
-            set {
-                this._SelectedFigure = value;
-                this.overlay.DraggedFigure = value;
-            }
-        }
+        public SoundPlayer RaiseFigureSound;
+        public SoundPlayer PlaceFigureSound;
+
 
         public ChessBoard()
         {
@@ -76,7 +104,8 @@ namespace Chess
                           ControlStyles.OptimizedDoubleBuffer |
                           ControlStyles.ResizeRedraw, true);
             this.UpdateStyles();
-            this.overlay = new DraggingCanvas();
+
+            this.overlay = new DraggingCanvas(this);
             this.Controls.Add(this.overlay);
             this.DoubleBuffered = true;
             this.FillGrid();
@@ -148,9 +177,6 @@ namespace Chess
             this.BackgroundImageLayout = ImageLayout.Stretch;
             this.overlay.Size = this.Size;
             this.overlay.Location = new Point(0, 0);
-            this.overlay.MouseDown += ChessBoard_MouseDown;
-            this.overlay.MouseMove += ChessBoard_MouseMove;
-            this.overlay.MouseUp += ChessBoard_MouseUp;
             this.Controls.SetChildIndex(this.overlay, 0);
         }
         protected override void OnPaint(PaintEventArgs e)
@@ -163,7 +189,7 @@ namespace Chess
                 for (int y = 0; y < BOARD_SIZE; y++)
                 {
                     Cell cell = this.board[x, y];
-                    if (cell.Figure != null && cell.Figure != this.SelectedFigure)
+                    if (cell.Figure != null && cell.Figure != this.overlay.DraggedFigure)
                     {
                         g.DrawImage(cell.Figure.Sprite, cell.Figure.ImageLocation.X, cell.Figure.ImageLocation.Y, Cell.SQUARE_SIZE, Cell.SQUARE_SIZE);
                     }
@@ -190,35 +216,6 @@ namespace Chess
         public Figure GetFigure(int x, int y)
         {
             return this.board[x, y].Figure;
-        }
-        private void ChessBoard_MouseDown(object sender, MouseEventArgs e)
-        {
-            this.SelectedFigure = this.GetFigure(e.X / Cell.SQUARE_SIZE, e.Y / Cell.SQUARE_SIZE);
-            if (this.SelectedFigure != null)
-            {
-                this.RaiseFigureSound.Play();
-            }
-        }
-        private void ChessBoard_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (this.SelectedFigure != null)
-            {
-                Point point = new Point(e.X - this.SelectedFigure.Sprite.Width / 2, e.Y - this.SelectedFigure.Sprite.Height / 2);
-                if (this.SelectedFigure.ImageLocation != point)
-                {
-                    this.SelectedFigure.ImageLocation = point;
-                    this.overlay.Refresh();
-                    this.Controls.SetChildIndex(this.overlay, 0);
-                }
-            }
-        }
-        private void ChessBoard_MouseUp(object sender, MouseEventArgs e)
-        {
-            if (this.SelectedFigure != null)
-            {
-                this.PlaceFigure(this.SelectedFigure, e.X, e.Y);
-                this.SelectedFigure = null;
-            }
         }
         public void PlaceFigure(Figure figure, int x, int y)
         {
