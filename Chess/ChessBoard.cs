@@ -106,6 +106,8 @@ namespace Chess
         public SoundPlayer RaiseFigureSound;
         public SoundPlayer PlaceFigureSound;
         public SoundPlayer PromotionSound;
+        public SoundPlayer EnPassantSound;
+        public bool EnPassantPerformed { get; set; }
 
         public ChessBoard()
         {
@@ -116,6 +118,7 @@ namespace Chess
                           ControlStyles.ResizeRedraw, true);
             this.UpdateStyles();
 
+            this.EnPassantPerformed = false;
             this.overlay = new DraggingCanvas(this);
             this.Controls.Add(this.overlay);
             this.DoubleBuffered = true;
@@ -123,6 +126,7 @@ namespace Chess
             this.RaiseFigureSound = new SoundPlayer("raiseFigure.wav");
             this.PlaceFigureSound = new SoundPlayer("placeFigure.wav");
             this.PromotionSound = new SoundPlayer("promotion.wav");
+            this.EnPassantSound = new SoundPlayer("enPassant.wav");
         }
 
         private void FillGrid()
@@ -247,7 +251,17 @@ namespace Chess
                     this.board[cellX, cellY].Figure = figure;
                     figure.X = cellX;
                     figure.Y = cellY;
-                    this.PlaceFigureSound.Play();
+
+                    if (this.EnPassantPerformed)
+                    {
+                        this.EnPassantSound.Play();
+                        this.EnPassantPerformed = false;
+                        this.ShowEnPassantExplanation();
+                    } else
+                    {
+                        this.PlaceFigureSound.Play();
+
+                    }
 
                     if (figure.Name == FigureType.Pawn)
                     {
@@ -295,6 +309,15 @@ namespace Chess
         public void PerformEnPassant()
         {
             this.board[this.EnPassantTarget.X, this.EnPassantTarget.Y].Figure = null;
+            this.EnPassantPerformed = true;
+        }
+        private async void ShowEnPassantExplanation()
+        {
+            await Task.Delay(3000);
+            using (EnPassantExplain enPassantExplain = new EnPassantExplain())
+            {
+                enPassantExplain.ShowDialog();
+            }
         }
     }
 }

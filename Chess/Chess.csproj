@@ -54,6 +54,12 @@
     <Compile Include="ChessBoard.Designer.cs">
       <DependentUpon>ChessBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="EnPassantExplain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnPassantExplain.Designer.cs">
+      <DependentUpon>EnPassantExplain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Figure.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     </Compile>
     <EmbeddedResource Include="ChessBoard.resx">
       <DependentUpon>ChessBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnPassantExplain.resx">
+      <DependentUpon>EnPassantExplain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -122,6 +131,8 @@
     <None Include="assets\background.jpg" />
     <None Include="assets\promotion.jpeg" />
     <None Include="assets\Chess_ndt60.png" />
+    <None Include="assets\enPassant.jpeg" />
+    <None Include="assets\enPassant.gif" />
     <Content Include="Board.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -159,6 +170,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Chess_rlt60.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="enPassant.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="enPassant.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="placeFigure.wav">
