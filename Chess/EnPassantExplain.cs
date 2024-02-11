@@ -15,7 +15,7 @@ namespace Chess
         public EnPassantExplain()
         {
             InitializeComponent();
-            this.enPassantAnimation.Image = Image.FromFile("enPassant.gif");
+            this.enPassantAnimation.Image = Properties.Resources.enPassantAnimation;
             this.enPassantAnimation.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 

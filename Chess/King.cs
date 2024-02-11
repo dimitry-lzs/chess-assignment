@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,11 +14,11 @@ namespace Chess
         {
             if (color == FigureColor.White)
             {
-                this.Sprite = Image.FromFile("Chess_klt60.png");
+                this.Sprite = Properties.Resources.Chess_klt60;
             }
             else
             {
-                this.Sprite = Image.FromFile("Chess_kdt60.png");
+                this.Sprite = Properties.Resources.Chess_kdt60;
             }
         }
 

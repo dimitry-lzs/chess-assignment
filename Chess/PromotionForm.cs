@@ -22,15 +22,15 @@ namespace Chess
 
             if (figureColor == FigureColor.White)
             {
-                this.knightPromotion.Image = Image.FromFile("Chess_nlt60.png");
-                this.rookPromotion.Image = Image.FromFile("Chess_rlt60.png");
-                this.queenPromotion.Image = Image.FromFile("Chess_qlt60.png");
+                this.knightPromotion.Image = Properties.Resources.Chess_nlt60;
+                this.rookPromotion.Image = Properties.Resources.Chess_rlt60;
+                this.queenPromotion.Image = Properties.Resources.Chess_qlt60;
             }
             else
             {
-                this.knightPromotion.Image = Image.FromFile("Chess_ndt60.png");
-                this.rookPromotion.Image = Image.FromFile("Chess_rdt60.png");
-                this.queenPromotion.Image = Image.FromFile("Chess_qdt60.png");
+                this.knightPromotion.Image = Properties.Resources.Chess_ndt60;
+                this.rookPromotion.Image = Properties.Resources.Chess_rdt60;
+                this.queenPromotion.Image = Properties.Resources.Chess_qdt60;
             }
         }
 

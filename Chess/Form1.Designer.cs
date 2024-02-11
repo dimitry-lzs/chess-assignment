@@ -49,6 +49,7 @@
             this.ClientSize = new System.Drawing.Size(600, 600);
             this.Controls.Add(this.startScreen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);

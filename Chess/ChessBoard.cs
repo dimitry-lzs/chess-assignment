@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows;
 using System.Media;
+using System.IO;
 
 namespace Chess
 {
@@ -19,6 +20,7 @@ namespace Chess
     {
         private Figure _DraggedFigure;
         private ChessBoard chessBoard;
+
         public Figure DraggedFigure {
             get
             {
@@ -123,10 +125,10 @@ namespace Chess
             this.Controls.Add(this.overlay);
             this.DoubleBuffered = true;
             this.FillGrid();
-            this.RaiseFigureSound = new SoundPlayer("raiseFigure.wav");
-            this.PlaceFigureSound = new SoundPlayer("placeFigure.wav");
-            this.PromotionSound = new SoundPlayer("promotion.wav");
-            this.EnPassantSound = new SoundPlayer("enPassant.wav");
+            this.RaiseFigureSound = new SoundPlayer(Properties.Resources.raiseFigure);
+            this.PlaceFigureSound = new SoundPlayer(Properties.Resources.placeFigure);
+            this.PromotionSound = new SoundPlayer(Properties.Resources.promotion);
+            this.EnPassantSound = new SoundPlayer(Properties.Resources.enPassant);
         }
 
         private void FillGrid()
@@ -189,7 +191,7 @@ namespace Chess
             this.Size = new Size(BOARD_SIZE * Cell.SQUARE_SIZE, BOARD_SIZE * Cell.SQUARE_SIZE);
             this.Location = new Point(30, 100);
             this.InitBoard();
-            this.BackgroundImage = Image.FromFile("Board.png");
+            this.BackgroundImage = Properties.Resources.Chessboard;
             this.BackgroundImageLayout = ImageLayout.Stretch;
             this.overlay.Size = this.Size;
             this.overlay.Location = new Point(0, 0);

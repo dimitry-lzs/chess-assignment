@@ -13,11 +13,11 @@ namespace Chess
         {
             if (color == FigureColor.White)
             {
-                this.Sprite = System.Drawing.Image.FromFile("Chess_plt60.png");
+                this.Sprite = Properties.Resources.Chess_plt60;
             }
             else
             {
-                this.Sprite = System.Drawing.Image.FromFile("Chess_pdt60.png");
+                this.Sprite = Properties.Resources.Chess_pdt60;
             }
         }
 

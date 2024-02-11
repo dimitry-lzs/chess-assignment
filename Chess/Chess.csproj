@@ -63,6 +63,12 @@
     <Compile Include="Figure.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="GameScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameScreen.Designer.cs">
+      <DependentUpon>GameScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="IFigure.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -83,6 +89,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queen.cs" />
     <Compile Include="Rook.cs" />
+    <Compile Include="SetupGame.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SetupGame.Designer.cs">
+      <DependentUpon>SetupGame.cs</DependentUpon>
+    </Compile>
     <Compile Include="StartScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -97,6 +109,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameScreen.resx">
+      <DependentUpon>GameScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PromotionForm.resx">
       <DependentUpon>PromotionForm.cs</DependentUpon>
@@ -111,6 +127,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SetupGame.resx">
+      <DependentUpon>SetupGame.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StartScreen.resx">
       <DependentUpon>StartScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,66 +147,67 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\background.jpg" />
-    <None Include="assets\promotion.jpeg" />
-    <None Include="assets\Chess_ndt60.png" />
-    <None Include="assets\enPassant.jpeg" />
-    <None Include="assets\enPassant.gif" />
-    <Content Include="Board.png">
+    <Resource Include="assets\background.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Chess_bdt60.png">
+    </Resource>
+    <Resource Include="assets\Chess_ndt60.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Chess_blt60.png">
+    </Resource>
+    <Resource Include="assets\Chessboard.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Chess_kdt60.png">
+    </Resource>
+    <Resource Include="assets\Chess_bdt60.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Chess_klt60.png">
+    </Resource>
+    <Resource Include="assets\Chess_blt60.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Chess_ndt60.png">
+    </Resource>
+    <Resource Include="assets\Chess_kdt60.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Chess_nlt60.png">
+    </Resource>
+    <Resource Include="assets\Chess_klt60.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Chess_pdt60.png">
+    </Resource>
+    <Resource Include="assets\Chess_nlt60.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Chess_plt60.png">
+    </Resource>
+    <Resource Include="assets\Chess_pdt60.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Chess_qdt60.png">
+    </Resource>
+    <Resource Include="assets\Chess_plt60.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Chess_qlt60.png">
+    </Resource>
+    <Resource Include="assets\Chess_qdt60.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Chess_rdt60.png">
+    </Resource>
+    <Resource Include="assets\Chess_qlt60.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </Resource>
+    <Resource Include="assets\Chess_rdt60.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\Chess_rlt60.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\enPassant.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\placeFigure.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\promotion.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\raiseFigure.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="assets\enPassantAnimation.gif" />
+    <Content Include="assets\enPassantBackground.jpeg" />
+    <Content Include="assets\promotionBackground.jpeg" />
     <Content Include="Chess_rlt60.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="enPassant.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="enPassant.wav">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="placeFigure.wav">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="promotion.jpeg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="promotion.wav">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="raiseFigure.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
