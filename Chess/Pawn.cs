@@ -22,38 +22,44 @@ namespace Chess
 
         public override bool CanMove(int x, int y)
         {
+            Figure targetCellFigure = this.Board.GetFigure(x, y);
             if (this.PieceColor == FigureColor.White)
             {
-                if (this.Y == 1)
+                if (targetCellFigure == null)
                 {
-                    if (this.X == x && (y == 2 || y == 3))
+                    if (this.Y == 1)
+                    {
+                        if (this.X == x && (y == 2 || y == 3))
+                        {
+                            return true;
+                        }
+                    }
+                    if (this.X == x && y == this.Y + 1)
                     {
                         return true;
                     }
                 }
-                if (this.X == x && y == this.Y + 1)
-                {
-                    return true;
-                }
-                if (Math.Abs(this.X - x) == 1 && y == this.Y + 1)
+                else if (Math.Abs(this.X - x) == 1 && y == this.Y + 1 && targetCellFigure.PieceColor == FigureColor.Black)
                 {
                     return true;
                 }
             }
             else
             {
-                if (this.Y == 6)
+                if (targetCellFigure == null)
                 {
-                    if (this.X == x && (y == 5 || y == 4))
+                    if (this.Y == 6)
+                    {
+                        if (this.X == x && (y == 5 || y == 4))
+                        {
+                            return true;
+                        }
+                    }
+                    if (this.X == x && y == this.Y - 1)
                     {
                         return true;
                     }
-                }
-                if (this.X == x && y == this.Y - 1)
-                {
-                    return true;
-                }
-                if (Math.Abs(this.X - x) == 1 && y == this.Y - 1)
+                } else if (Math.Abs(this.X - x) == 1 && y == this.Y - 1 && targetCellFigure.PieceColor == FigureColor.White)
                 {
                     return true;
                 }

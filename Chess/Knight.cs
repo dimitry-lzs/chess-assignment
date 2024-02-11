@@ -22,9 +22,13 @@ namespace Chess
 
         public override bool CanMove(int x, int y)
         {
-            if ((Math.Abs(this.X - x) == 2 && Math.Abs(this.Y - y) == 1) || (Math.Abs(this.X - x) == 1 && Math.Abs(this.Y - y) == 2))
+            Figure targetCellFigure = this.Board.GetFigure(x, y);
+            if (targetCellFigure == null || targetCellFigure.PieceColor != this.PieceColor)
             {
-                return true;
+                if ((Math.Abs(this.X - x) == 2 && Math.Abs(this.Y - y) == 1) || (Math.Abs(this.X - x) == 1 && Math.Abs(this.Y - y) == 2))
+                {
+                    return true;
+                }
             }
             return false;
         }

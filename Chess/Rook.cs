@@ -22,10 +22,16 @@ namespace Chess
 
         public override bool CanMove(int x, int y)
         {
-            if (this.X == x || this.Y == y)
+            Figure targetCellFigure = this.Board.GetFigure(x, y);
+
+            if (targetCellFigure == null || targetCellFigure.PieceColor != this.PieceColor)
             {
-                return true;
+                if (this.X == x || this.Y == y)
+                {
+                    return true;
+                }
             }
+
             return false;
         }
     }

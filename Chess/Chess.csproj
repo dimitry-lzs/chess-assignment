@@ -47,9 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bishop.cs" />
-    <Compile Include="Cell.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Cell.cs" />
     <Compile Include="ChessBoard.cs">
       <SubType>Component</SubType>
     </Compile>

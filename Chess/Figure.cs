@@ -37,6 +37,7 @@ namespace Chess
         public bool HasMoved { get; set; }
 
         private Image _Sprite;
+        public ChessBoard Board { get; set; }
 
         public Image Sprite { get
             {
