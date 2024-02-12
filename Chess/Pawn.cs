@@ -54,7 +54,7 @@ namespace Chess
                         return true;
                     }
                 }
-                else if (Math.Abs(this.X - x) == 1 && y == this.Y + 1 && targetCellFigure.PieceColor == FigureColor.Black)
+                else if (Math.Abs(this.X - x) == 1 && y == this.Y + 1 && targetCellFigure.PieceColor == FigureColor.White)
                 {
                     this.Board.EnPassantTarget = null;
                     return true;
@@ -89,7 +89,7 @@ namespace Chess
                         this.Board.PerformEnPassant();
                         return true;
                     }
-                } else if (Math.Abs(this.X - x) == 1 && y == this.Y - 1 && targetCellFigure.PieceColor == FigureColor.White)
+                } else if (Math.Abs(this.X - x) == 1 && y == this.Y - 1 && targetCellFigure.PieceColor == FigureColor.Black)
                 {
                     this.Board.EnPassantTarget = null;
                     return true;
