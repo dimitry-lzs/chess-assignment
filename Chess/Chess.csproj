@@ -54,16 +54,16 @@
     <Compile Include="ChessBoard.Designer.cs">
       <DependentUpon>ChessBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClickBlinker.cs">
+    <Compile Include="NixieBlinker.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Clock.cs">
+    <Compile Include="NixieClock.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Clock.Designer.cs">
-      <DependentUpon>Clock.cs</DependentUpon>
+    <Compile Include="NixieClock.Designer.cs">
+      <DependentUpon>NixieClock.cs</DependentUpon>
     </Compile>
-    <Compile Include="Digit.cs">
+    <Compile Include="Nixie.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="EnPassantExplain.cs">
@@ -117,8 +117,8 @@
     <EmbeddedResource Include="ChessBoard.resx">
       <DependentUpon>ChessBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Clock.resx">
-      <DependentUpon>Clock.cs</DependentUpon>
+    <EmbeddedResource Include="NixieClock.resx">
+      <DependentUpon>NixieClock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EnPassantExplain.resx">
       <DependentUpon>EnPassantExplain.cs</DependentUpon>
@@ -129,6 +129,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GameScreen.resx">
       <DependentUpon>GameScreen.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="PromotionForm.resx">
       <DependentUpon>PromotionForm.cs</DependentUpon>

@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Chess
 {
-    public class ClickBlinker : Panel
+    public class NixieBlinker : Panel
     {
         private int _X = 13;
         private int _Y = 25;
@@ -16,7 +16,7 @@ namespace Chess
         private System.Drawing.Image[] blinkingImages = new System.Drawing.Image[2];
 
         Timer timer;
-        public ClickBlinker()
+        public NixieBlinker()
         {
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.ResizeRedraw |
@@ -24,22 +24,26 @@ namespace Chess
                                               ControlStyles.AllPaintingInWmPaint, true);
             this.BackColor = System.Drawing.Color.Transparent;
 
-            this.blinkingImages[0] = Properties.Resources.center_bulb1;
-            this.blinkingImages[1] = Properties.Resources.center_bulb2;
+            this.blinkingImages[0] = Properties.Resources.center_bulb2;
+            this.blinkingImages[1] = Properties.Resources.center_bulb1;
             this.BlinkerImage = this.blinkingImages[0];
 
-            // For testing, normally clock controls it
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 500; // Timer will tick every 500 milliseconds (1/2 second)
-            timer.Tick += new EventHandler(timer_Tick);
-            timer.Start(); // Start the timer
+            this.timer.Tick += new EventHandler(timer_Tick);
+        }
+
+        public void Blink()
+        {
+            this.BlinkerImage = this.blinkingImages[0];
+            this.Refresh();
+            this.timer.Start();
         }
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            this.BlinkerImage = this.blinkingImages[0];
-            this.blinkingImages[0] = this.blinkingImages[1];
-            this.blinkingImages[1] = this.BlinkerImage;
+            this.BlinkerImage = this.blinkingImages[1];
+            this.timer.Stop();
             this.Refresh();
         }
         
