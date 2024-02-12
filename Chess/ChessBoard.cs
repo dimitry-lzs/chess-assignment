@@ -147,49 +147,48 @@ namespace Chess
         // Initial board setup
         private void InitBoard()
         {
-            // White figures
-            this.GetCell('a', 8).Figure = new Rook(FigureColor.White);
-            this.GetCell('b', 8).Figure = new Knight(FigureColor.White);
-            this.GetCell('c', 8).Figure = new Bishop(FigureColor.White);
-            this.GetCell('d', 8).Figure = new Queen(FigureColor.White);
-            this.GetCell('e', 8).Figure = new King(FigureColor.White);
-            this.GetCell('f', 8).Figure = new Bishop(FigureColor.White);
-            this.GetCell('g', 8).Figure = new Knight(FigureColor.White);
-            this.GetCell('h', 8).Figure = new Rook(FigureColor.White);
-            // White Pawns
-            this.GetCell('a', 7).Figure = new Pawn(FigureColor.White);
-            this.GetCell('b', 7).Figure = new Pawn(FigureColor.White);
-            this.GetCell('c', 7).Figure = new Pawn(FigureColor.White);
-            this.GetCell('d', 7).Figure = new Pawn(FigureColor.White);
-            this.GetCell('e', 7).Figure = new Pawn(FigureColor.White);
-            this.GetCell('f', 7).Figure = new Pawn(FigureColor.White);
-            this.GetCell('g', 7).Figure = new Pawn(FigureColor.White);
-            this.GetCell('h', 7).Figure = new Pawn(FigureColor.White);
-
-            // Black Pawns
-            this.GetCell('a', 2).Figure = new Pawn(FigureColor.Black);
-            this.GetCell('b', 2).Figure = new Pawn(FigureColor.Black);
-            this.GetCell('c', 2).Figure = new Pawn(FigureColor.Black);
-            this.GetCell('d', 2).Figure = new Pawn(FigureColor.Black);
-            this.GetCell('e', 2).Figure = new Pawn(FigureColor.Black);
-            this.GetCell('f', 2).Figure = new Pawn(FigureColor.Black);
-            this.GetCell('g', 2).Figure = new Pawn(FigureColor.Black);
-            this.GetCell('h', 2).Figure = new Pawn(FigureColor.Black);
             // Black figures
-            this.GetCell('a', 1).Figure = new Rook(FigureColor.Black);
-            this.GetCell('b', 1).Figure = new Knight(FigureColor.Black);
-            this.GetCell('c', 1).Figure = new Bishop(FigureColor.Black);
-            this.GetCell('d', 1).Figure = new Queen(FigureColor.Black);
-            this.GetCell('e', 1).Figure = new King(FigureColor.Black);
-            this.GetCell('f', 1).Figure = new Bishop(FigureColor.Black);
-            this.GetCell('g', 1).Figure = new Knight(FigureColor.Black);
-            this.GetCell('h', 1).Figure = new Rook(FigureColor.Black);
+            this.GetCell('a', 8).Figure = new Rook(FigureColor.Black);
+            this.GetCell('b', 8).Figure = new Knight(FigureColor.Black);
+            this.GetCell('c', 8).Figure = new Bishop(FigureColor.Black);
+            this.GetCell('d', 8).Figure = new Queen(FigureColor.Black);
+            this.GetCell('e', 8).Figure = new King(FigureColor.Black);
+            this.GetCell('f', 8).Figure = new Bishop(FigureColor.Black);
+            this.GetCell('g', 8).Figure = new Knight(FigureColor.Black);
+            this.GetCell('h', 8).Figure = new Rook(FigureColor.Black);
+            // Black Pawns
+            this.GetCell('a', 7).Figure = new Pawn(FigureColor.Black);
+            this.GetCell('b', 7).Figure = new Pawn(FigureColor.Black);
+            this.GetCell('c', 7).Figure = new Pawn(FigureColor.Black);
+            this.GetCell('d', 7).Figure = new Pawn(FigureColor.Black);
+            this.GetCell('e', 7).Figure = new Pawn(FigureColor.Black);
+            this.GetCell('f', 7).Figure = new Pawn(FigureColor.Black);
+            this.GetCell('g', 7).Figure = new Pawn(FigureColor.Black);
+            this.GetCell('h', 7).Figure = new Pawn(FigureColor.Black);
+
+            // White Pawns
+            this.GetCell('a', 2).Figure = new Pawn(FigureColor.White);
+            this.GetCell('b', 2).Figure = new Pawn(FigureColor.White);
+            this.GetCell('c', 2).Figure = new Pawn(FigureColor.White);
+            this.GetCell('d', 2).Figure = new Pawn(FigureColor.White);
+            this.GetCell('e', 2).Figure = new Pawn(FigureColor.White);
+            this.GetCell('f', 2).Figure = new Pawn(FigureColor.White);
+            this.GetCell('g', 2).Figure = new Pawn(FigureColor.White);
+            this.GetCell('h', 2).Figure = new Pawn(FigureColor.White);
+            // White figures
+            this.GetCell('a', 1).Figure = new Rook(FigureColor.White);
+            this.GetCell('b', 1).Figure = new Knight(FigureColor.White);
+            this.GetCell('c', 1).Figure = new Bishop(FigureColor.White);
+            this.GetCell('d', 1).Figure = new Queen(FigureColor.White);
+            this.GetCell('e', 1).Figure = new King(FigureColor.White);
+            this.GetCell('f', 1).Figure = new Bishop(FigureColor.White);
+            this.GetCell('g', 1).Figure = new Knight(FigureColor.White);
+            this.GetCell('h', 1).Figure = new Rook(FigureColor.White);
         }
 
         private void ChessBoard_Load(object sender, EventArgs e)
         {
             this.Size = new Size(BOARD_SIZE * Cell.SQUARE_SIZE, BOARD_SIZE * Cell.SQUARE_SIZE);
-            this.Location = new Point(30, 100);
             this.InitBoard();
             this.BackgroundImage = Properties.Resources.Chessboard;
             this.BackgroundImageLayout = ImageLayout.Stretch;
