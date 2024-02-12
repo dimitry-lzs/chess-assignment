@@ -55,7 +55,7 @@ namespace Chess
                         this.digitImage = Properties.Resources._9;
                         break;
                     default:
-                        this.digitImage = null;
+                        this.digitImage = Properties.Resources._0;
                         break;
                 }
                 _Value = value;

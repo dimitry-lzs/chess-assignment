@@ -54,6 +54,12 @@
     <Compile Include="ChessBoard.Designer.cs">
       <DependentUpon>ChessBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameClock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GameClock.Designer.cs">
+      <DependentUpon>GameClock.cs</DependentUpon>
+    </Compile>
     <Compile Include="NixieBlinker.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </Compile>
     <EmbeddedResource Include="ChessBoard.resx">
       <DependentUpon>ChessBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameClock.resx">
+      <DependentUpon>GameClock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NixieClock.resx">
       <DependentUpon>NixieClock.cs</DependentUpon>

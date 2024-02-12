@@ -38,7 +38,7 @@
             // clockBlinker
             // 
             this.clockBlinker.BackColor = System.Drawing.Color.Transparent;
-            this.clockBlinker.Location = new System.Drawing.Point(198, 197);
+            this.clockBlinker.Location = new System.Drawing.Point(98, 56);
             this.clockBlinker.Name = "clockBlinker";
             this.clockBlinker.Size = new System.Drawing.Size(13, 25);
             this.clockBlinker.TabIndex = 3;
@@ -46,7 +46,7 @@
             // seconds
             // 
             this.seconds.BackColor = System.Drawing.Color.Transparent;
-            this.seconds.Location = new System.Drawing.Point(266, 141);
+            this.seconds.Location = new System.Drawing.Point(166, 0);
             this.seconds.Name = "seconds";
             this.seconds.Size = new System.Drawing.Size(43, 81);
             this.seconds.TabIndex = 1;
@@ -54,7 +54,7 @@
             // tensSeconds
             // 
             this.tensSeconds.BackColor = System.Drawing.Color.Transparent;
-            this.tensSeconds.Location = new System.Drawing.Point(217, 141);
+            this.tensSeconds.Location = new System.Drawing.Point(117, 0);
             this.tensSeconds.Name = "tensSeconds";
             this.tensSeconds.Size = new System.Drawing.Size(43, 81);
             this.tensSeconds.TabIndex = 2;
@@ -62,7 +62,7 @@
             // minutes
             // 
             this.minutes.BackColor = System.Drawing.Color.Transparent;
-            this.minutes.Location = new System.Drawing.Point(149, 141);
+            this.minutes.Location = new System.Drawing.Point(49, 0);
             this.minutes.Name = "minutes";
             this.minutes.Size = new System.Drawing.Size(43, 81);
             this.minutes.TabIndex = 1;
@@ -70,12 +70,12 @@
             // tensMinutes
             // 
             this.tensMinutes.BackColor = System.Drawing.Color.Transparent;
-            this.tensMinutes.Location = new System.Drawing.Point(100, 141);
+            this.tensMinutes.Location = new System.Drawing.Point(0, 0);
             this.tensMinutes.Name = "tensMinutes";
             this.tensMinutes.Size = new System.Drawing.Size(43, 81);
             this.tensMinutes.TabIndex = 0;
             // 
-            // Clock
+            // NixieClock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -85,8 +85,8 @@
             this.Controls.Add(this.tensSeconds);
             this.Controls.Add(this.minutes);
             this.Controls.Add(this.tensMinutes);
-            this.Name = "Clock";
-            this.Size = new System.Drawing.Size(456, 222);
+            this.Name = "NixieClock";
+            this.Size = new System.Drawing.Size(209, 83);
             this.Load += new System.EventHandler(this.Clock_Load);
             this.ResumeLayout(false);
 
