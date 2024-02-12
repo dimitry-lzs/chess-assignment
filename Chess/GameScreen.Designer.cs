@@ -49,6 +49,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.blackPlayerName = new System.Windows.Forms.Label();
+            this.whitePlayerName = new System.Windows.Forms.Label();
             this.chessBoard1 = new Chess.ChessBoard();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -65,7 +67,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.coordinate);
-            this.panel1.Location = new System.Drawing.Point(50, 588);
+            this.panel1.Location = new System.Drawing.Point(245, 611);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(532, 20);
             this.panel1.TabIndex = 1;
@@ -185,7 +187,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(87)))), ((int)(((byte)(51)))));
-            this.panel2.Location = new System.Drawing.Point(562, 56);
+            this.panel2.Location = new System.Drawing.Point(757, 79);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(20, 532);
             this.panel2.TabIndex = 2;
@@ -201,7 +203,7 @@
             this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.label8);
-            this.panel3.Location = new System.Drawing.Point(30, 76);
+            this.panel3.Location = new System.Drawing.Point(225, 99);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(20, 532);
             this.panel3.TabIndex = 3;
@@ -321,10 +323,34 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(87)))), ((int)(((byte)(51)))));
-            this.panel4.Location = new System.Drawing.Point(30, 56);
+            this.panel4.Location = new System.Drawing.Point(225, 79);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(532, 20);
             this.panel4.TabIndex = 2;
+            // 
+            // blackPlayerName
+            // 
+            this.blackPlayerName.AutoSize = true;
+            this.blackPlayerName.BackColor = System.Drawing.Color.Transparent;
+            this.blackPlayerName.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.blackPlayerName.ForeColor = System.Drawing.Color.Moccasin;
+            this.blackPlayerName.Location = new System.Drawing.Point(821, 79);
+            this.blackPlayerName.Name = "blackPlayerName";
+            this.blackPlayerName.Size = new System.Drawing.Size(132, 29);
+            this.blackPlayerName.TabIndex = 4;
+            this.blackPlayerName.Text = "Player Black";
+            // 
+            // whitePlayerName
+            // 
+            this.whitePlayerName.AutoSize = true;
+            this.whitePlayerName.BackColor = System.Drawing.Color.Transparent;
+            this.whitePlayerName.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.whitePlayerName.ForeColor = System.Drawing.Color.Moccasin;
+            this.whitePlayerName.Location = new System.Drawing.Point(32, 79);
+            this.whitePlayerName.Name = "whitePlayerName";
+            this.whitePlayerName.Size = new System.Drawing.Size(138, 29);
+            this.whitePlayerName.TabIndex = 5;
+            this.whitePlayerName.Text = "Player White";
             // 
             // chessBoard1
             // 
@@ -333,7 +359,7 @@
             this.chessBoard1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.chessBoard1.EnPassantPerformed = false;
             this.chessBoard1.EnPassantTarget = null;
-            this.chessBoard1.Location = new System.Drawing.Point(50, 76);
+            this.chessBoard1.Location = new System.Drawing.Point(245, 99);
             this.chessBoard1.Margin = new System.Windows.Forms.Padding(0);
             this.chessBoard1.Name = "chessBoard1";
             this.chessBoard1.Size = new System.Drawing.Size(512, 512);
@@ -343,7 +369,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(921, 674);
+            this.BackgroundImage = global::Chess.Properties.Resources.background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(984, 711);
+            this.Controls.Add(this.whitePlayerName);
+            this.Controls.Add(this.blackPlayerName);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -354,6 +384,7 @@
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -380,5 +411,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label blackPlayerName;
+        private System.Windows.Forms.Label whitePlayerName;
     }
 }

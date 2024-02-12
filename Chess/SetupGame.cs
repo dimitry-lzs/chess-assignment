@@ -12,6 +12,7 @@ namespace Chess
 {
     public partial class SetupGame : UserControl
     {
+        
         public SetupGame()
         {
             InitializeComponent();
@@ -25,6 +26,8 @@ namespace Chess
         {
             this.Parent.Controls.Add(new ChessBoard());
             this.Parent.Controls.Remove(this);
+            Player whitesPlayer = new Player(this.whitePlayerName.Text, FigureColor.White);
+            Player blacksPlayer = new Player(this.blackPlayerName.Text, FigureColor.Black);
         }
     }
 }

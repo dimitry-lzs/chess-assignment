@@ -33,7 +33,7 @@
             this.playerBlack = new System.Windows.Forms.Label();
             this.whitePlayerName = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.blackPlayerName = new System.Windows.Forms.TextBox();
             this.beginGame = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -58,7 +58,7 @@
             this.playerBlack.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.playerBlack.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playerBlack.ForeColor = System.Drawing.Color.Moccasin;
-            this.playerBlack.Location = new System.Drawing.Point(375, 53);
+            this.playerBlack.Location = new System.Drawing.Point(362, 53);
             this.playerBlack.Name = "playerBlack";
             this.playerBlack.Size = new System.Drawing.Size(209, 45);
             this.playerBlack.TabIndex = 7;
@@ -81,16 +81,16 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // textBox1
+            // blackPlayerName
             // 
-            this.textBox1.BackColor = System.Drawing.Color.SaddleBrown;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Moccasin;
-            this.textBox1.Location = new System.Drawing.Point(383, 171);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(201, 27);
-            this.textBox1.TabIndex = 9;
+            this.blackPlayerName.BackColor = System.Drawing.Color.SaddleBrown;
+            this.blackPlayerName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.blackPlayerName.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.blackPlayerName.ForeColor = System.Drawing.Color.Moccasin;
+            this.blackPlayerName.Location = new System.Drawing.Point(370, 171);
+            this.blackPlayerName.Name = "blackPlayerName";
+            this.blackPlayerName.Size = new System.Drawing.Size(214, 27);
+            this.blackPlayerName.TabIndex = 9;
             // 
             // beginGame
             // 
@@ -113,7 +113,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.beginGame);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.blackPlayerName);
             this.Controls.Add(this.whitePlayerName);
             this.Controls.Add(this.playerBlack);
             this.Controls.Add(this.playerWhite);
@@ -130,7 +130,7 @@
         private System.Windows.Forms.Label playerBlack;
         private System.Windows.Forms.TextBox whitePlayerName;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox blackPlayerName;
         private System.Windows.Forms.Label beginGame;
     }
 }
