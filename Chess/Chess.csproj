@@ -54,6 +54,9 @@
     <Compile Include="ChessBoard.Designer.cs">
       <DependentUpon>ChessBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClickBlinker.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Clock.cs">
       <SubType>UserControl</SubType>
     </Compile>
