@@ -13,6 +13,7 @@ namespace Chess
     public partial class NixieClock : UserControl
     {
         Timer timer;
+        public Player player;
         private int _SecondsRemaining;
         public int SecondsRemaining {
             get {
@@ -23,6 +24,7 @@ namespace Chess
                 if (this._SecondsRemaining < 0)
                 {
                     this.Stop();
+                    this.player.LostByTime();
                 }
                 this.SetTime();
             }
@@ -75,7 +77,7 @@ namespace Chess
 
         private void Clock_Load(object sender, EventArgs e)
         {
-            this.Start();
+            // this.Start();
         }
     }
 }

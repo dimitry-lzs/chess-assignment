@@ -16,88 +16,7 @@ using System.IO;
 
 namespace Chess
 {
-    internal class DraggingCanvas : Panel
-    {
-        private Figure _DraggedFigure;
-        private ChessBoard chessBoard;
-
-        public Figure DraggedFigure {
-            get
-            {
-                return this._DraggedFigure;
-            }
-            set
-            {
-                this._DraggedFigure = value;
-                this.Refresh();
-            }
-        }
-        public DraggingCanvas(ChessBoard chessBoard)
-        {
-            this.SetStyle(ControlStyles.OptimizedDoubleBuffer |
-                          ControlStyles.AllPaintingInWmPaint |
-                          ControlStyles.UserPaint |
-                          ControlStyles.SupportsTransparentBackColor, true);
-            this.BackColor = Color.Transparent;
-            this.DoubleBuffered = true;
-            this.chessBoard = chessBoard;
-            this.MouseDown += ChessBoard_MouseDown;
-            this.MouseMove += ChessBoard_MouseMove;
-            this.MouseUp += ChessBoard_MouseUp;
-        }
-        private void ChessBoard_MouseDown(object sender, MouseEventArgs e)
-        {
-            Figure draggedFigure = this.chessBoard.GetFigure(e.X / Cell.SQUARE_SIZE, e.Y / Cell.SQUARE_SIZE);
-            if (draggedFigure != null)
-            {
-                this.DraggedFigure = draggedFigure;
-                this.chessBoard.RaiseFigureSound.Play();
-            }
-        }
-        private void ChessBoard_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (this.DraggedFigure != null)
-            {
-                Cursor.Current = Cursors.Hand;
-                Point point = new Point(e.X - this.DraggedFigure.Sprite.Width / 2, e.Y - this.DraggedFigure.Sprite.Height / 2);
-                if (this.DraggedFigure.ImageLocation != point)
-                {
-                    this.DraggedFigure.ImageLocation = point;
-                    this.Refresh();
-                }
-            } else
-            {
-                if (this.chessBoard.GetFigure(e.X / Cell.SQUARE_SIZE, e.Y / Cell.SQUARE_SIZE) != null)
-                {
-                    Cursor.Current = Cursors.Hand;
-                } else
-                {
-                    Cursor.Current = Cursors.Default;
-                }
-            }
-        }
-        private void ChessBoard_MouseUp(object sender, MouseEventArgs e)
-        {
-            if (this.DraggedFigure != null)
-            {
-                this.chessBoard.PlaceFigure(this.DraggedFigure, e.X, e.Y);
-                this.DraggedFigure = null;
-            }
-        }
-
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            base.OnPaint(e);
-            if (this.DraggedFigure == null) return;
-
-            if (this.DraggedFigure.ImageLocation != Point.Empty)
-            {
-                e.Graphics.DrawImage(this.DraggedFigure.Sprite, this.DraggedFigure.ImageLocation.X, this.DraggedFigure.ImageLocation.Y, Cell.SQUARE_SIZE + 6, Cell.SQUARE_SIZE + 6);
-
-            }
-        }
-    }
-    public partial class ChessBoard : UserControl
+    public partial class ChessBoard : UserControl  
     {
         private const int BOARD_SIZE = 8;
         private Cell[,] board = new Cell[BOARD_SIZE, BOARD_SIZE];
@@ -321,4 +240,89 @@ namespace Chess
             }
         }
     }
+    internal class DraggingCanvas : Panel
+    {
+        private Figure _DraggedFigure;
+        private ChessBoard chessBoard;
+
+        public Figure DraggedFigure
+        {
+            get
+            {
+                return this._DraggedFigure;
+            }
+            set
+            {
+                this._DraggedFigure = value;
+                this.Refresh();
+            }
+        }
+        public DraggingCanvas(ChessBoard chessBoard)
+        {
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer |
+                          ControlStyles.AllPaintingInWmPaint |
+                          ControlStyles.UserPaint |
+                          ControlStyles.SupportsTransparentBackColor, true);
+            this.BackColor = Color.Transparent;
+            this.DoubleBuffered = true;
+            this.chessBoard = chessBoard;
+            this.MouseDown += ChessBoard_MouseDown;
+            this.MouseMove += ChessBoard_MouseMove;
+            this.MouseUp += ChessBoard_MouseUp;
+        }
+        private void ChessBoard_MouseDown(object sender, MouseEventArgs e)
+        {
+            Figure draggedFigure = this.chessBoard.GetFigure(e.X / Cell.SQUARE_SIZE, e.Y / Cell.SQUARE_SIZE);
+            if (draggedFigure != null)
+            {
+                this.DraggedFigure = draggedFigure;
+                this.chessBoard.RaiseFigureSound.Play();
+            }
+        }
+        private void ChessBoard_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (this.DraggedFigure != null)
+            {
+                Cursor.Current = Cursors.Hand;
+                Point point = new Point(e.X - this.DraggedFigure.Sprite.Width / 2, e.Y - this.DraggedFigure.Sprite.Height / 2);
+                if (this.DraggedFigure.ImageLocation != point)
+                {
+                    this.DraggedFigure.ImageLocation = point;
+                    this.Refresh();
+                }
+            }
+            else
+            {
+                if (this.chessBoard.GetFigure(e.X / Cell.SQUARE_SIZE, e.Y / Cell.SQUARE_SIZE) != null)
+                {
+                    Cursor.Current = Cursors.Hand;
+                }
+                else
+                {
+                    Cursor.Current = Cursors.Default;
+                }
+            }
+        }
+        private void ChessBoard_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (this.DraggedFigure != null)
+            {
+                this.chessBoard.PlaceFigure(this.DraggedFigure, e.X, e.Y);
+                this.DraggedFigure = null;
+            }
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            if (this.DraggedFigure == null) return;
+
+            if (this.DraggedFigure.ImageLocation != Point.Empty)
+            {
+                e.Graphics.DrawImage(this.DraggedFigure.Sprite, this.DraggedFigure.ImageLocation.X, this.DraggedFigure.ImageLocation.Y, Cell.SQUARE_SIZE + 6, Cell.SQUARE_SIZE + 6);
+
+            }
+        }
+    }
+
 }

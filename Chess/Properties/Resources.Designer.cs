@@ -425,5 +425,15 @@ namespace Chess.Properties {
                 return ResourceManager.GetStream("raiseFigure", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap timeExpiredBackground {
+            get {
+                object obj = ResourceManager.GetObject("timeExpiredBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

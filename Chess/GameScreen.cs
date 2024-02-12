@@ -10,12 +10,44 @@ using System.Windows.Forms;
 
 namespace Chess
 {
-    public partial class GameScreen : Form
+    public partial class GameScreen : UserControl
     {
         Player[] players;
-        Player PlayingPlayer;
-        Player whitePlayer;
-        Player blackPlayer;
+        ChessBoard chessBoard;
+
+        Player _PlayingPlayer;
+        Player PlayingPlayer
+        {
+            get { return this._PlayingPlayer; }
+            set
+            {
+                this.gameClock.Press(this._PlayingPlayer); // Player presses clock after making move
+                this._PlayingPlayer = value;
+
+            }
+        }
+        private Player _whitePlayer;
+        Player whitePlayer
+        {
+            get { return this._whitePlayer; }
+
+        set {
+            this._whitePlayer = value;
+                this.whitePlayerName.Text = value.Name;
+            }
+        }
+
+        private Player _blackPlayer;
+        Player blackPlayer
+        {
+            get { return this._blackPlayer; }
+
+            set
+            {
+                this._blackPlayer = value;
+                this.blackPlayerName.Text = value.Name;
+            }
+        }
 
         public GameScreen(Player player1, Player player2)
         {
@@ -40,6 +72,7 @@ namespace Chess
                 this.whitePlayer = player2;
                 this.blackPlayer = player1;
             }
+            this.chessBoard = this.framedChessboard.ChessBoard;
         }
 
         public void SetPlayingPlayer()
@@ -47,6 +80,15 @@ namespace Chess
             this.PlayingPlayer = this.players[0];
             this.players[0] = this.players[1];
             this.players[1] = this.PlayingPlayer;
+        }
+
+        private void GameScreen_Load(object sender, EventArgs e)
+        {
+            this.Parent.ClientSize = this.Size;
+            this.Parent.MinimumSize = this.Parent.Size;
+            this.Parent.MaximumSize = this.Parent.Size;
+            this.SetPlayingPlayer();
+            this.gameClock.Press(this.blackPlayer);
         }
     }
 }

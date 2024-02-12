@@ -8,6 +8,7 @@ namespace Chess
 {
     public class Player
     {
+        public bool Lost;
         public string Name { get; set; }
         public int SecondsRemaining { get; set; }
         public Figure[] Trophies { get; set; }
@@ -21,6 +22,14 @@ namespace Chess
         public bool CanMove (FigureColor color)
         {
             return color == this.PickedColor;
+        }
+        public void LostByTime()
+        {
+            this.Lost = true;
+            using (TimeEnded timeEnded = new TimeEnded(this))
+            {
+                timeEnded.ShowDialog();
+            }
         }
     }
 }

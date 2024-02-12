@@ -24,10 +24,12 @@ namespace Chess
 
         private void beginGame_Click(object sender, EventArgs e)
         {
-            this.Parent.Controls.Add(new ChessBoard());
-            this.Parent.Controls.Remove(this);
             Player whitesPlayer = new Player(this.whitePlayerName.Text, FigureColor.White);
             Player blacksPlayer = new Player(this.blackPlayerName.Text, FigureColor.Black);
+            GameScreen gameScreen = new GameScreen(whitesPlayer, blacksPlayer);
+            this.Parent.ClientSize = gameScreen.Size;
+            this.Parent.Controls.Add(gameScreen);
+            this.Parent.Controls.Remove(this);
         }
     }
 }

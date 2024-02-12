@@ -49,10 +49,16 @@
     <Compile Include="Bishop.cs" />
     <Compile Include="Cell.cs" />
     <Compile Include="ChessBoard.cs">
-      <SubType>Component</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ChessBoard.Designer.cs">
       <DependentUpon>ChessBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FramedChessboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FramedChessboard.Designer.cs">
+      <DependentUpon>FramedChessboard.cs</DependentUpon>
     </Compile>
     <Compile Include="GameClock.cs">
       <SubType>UserControl</SubType>
@@ -82,7 +88,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="GameScreen.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="GameScreen.Designer.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
@@ -120,8 +126,17 @@
     <Compile Include="StartScreen.Designer.cs">
       <DependentUpon>StartScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="TimeEnded.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TimeEnded.Designer.cs">
+      <DependentUpon>TimeEnded.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ChessBoard.resx">
       <DependentUpon>ChessBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FramedChessboard.resx">
+      <DependentUpon>FramedChessboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GameClock.resx">
       <DependentUpon>GameClock.cs</DependentUpon>
@@ -158,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StartScreen.resx">
       <DependentUpon>StartScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeEnded.resx">
+      <DependentUpon>TimeEnded.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -275,6 +293,9 @@
     <Content Include="assets\enPassantAnimation.gif" />
     <Content Include="assets\enPassantBackground.jpeg" />
     <Content Include="assets\promotionBackground.jpeg" />
+    <Resource Include="assets\timeExpiredBackground.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Chess_rlt60.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
