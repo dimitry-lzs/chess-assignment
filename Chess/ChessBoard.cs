@@ -22,8 +22,9 @@ namespace Chess
         private Cell[,] board = new Cell[BOARD_SIZE, BOARD_SIZE];
         private DraggingCanvas overlay;
         public Figure EnPassantTarget { get; set; }
+        public GameScreen gameScreen;
 
-
+        public Player playingPlayer;
         public SoundPlayer RaiseFigureSound;
         public SoundPlayer PlaceFigureSound;
         public SoundPlayer PromotionSound;
@@ -155,7 +156,7 @@ namespace Chess
         }
         public void PlaceFigure(Figure figure, int x, int y)
         {
-            if (figure != null)
+            if (figure != null && this.playingPlayer != null && this.playingPlayer.PickedColor == figure.PieceColor)
             {
                 int cellX = x / Cell.SQUARE_SIZE;
                 int cellY = y / Cell.SQUARE_SIZE;
@@ -171,6 +172,8 @@ namespace Chess
                     this.board[cellX, cellY].Figure = figure;
                     figure.X = cellX;
                     figure.Y = cellY;
+
+                    if (this.gameScreen != null) this.gameScreen.SetPlayingPlayer();
 
                     if (this.EnPassantPerformed)
                     {
@@ -273,7 +276,7 @@ namespace Chess
         private void ChessBoard_MouseDown(object sender, MouseEventArgs e)
         {
             Figure draggedFigure = this.chessBoard.GetFigure(e.X / Cell.SQUARE_SIZE, e.Y / Cell.SQUARE_SIZE);
-            if (draggedFigure != null)
+            if (draggedFigure != null && this.chessBoard.playingPlayer != null && this.chessBoard.playingPlayer.PickedColor == draggedFigure.PieceColor)
             {
                 this.DraggedFigure = draggedFigure;
                 this.chessBoard.RaiseFigureSound.Play();
@@ -293,7 +296,8 @@ namespace Chess
             }
             else
             {
-                if (this.chessBoard.GetFigure(e.X / Cell.SQUARE_SIZE, e.Y / Cell.SQUARE_SIZE) != null)
+                Figure figureBeneath = this.chessBoard.GetFigure(e.X / Cell.SQUARE_SIZE, e.Y / Cell.SQUARE_SIZE);
+                if (figureBeneath != null && this.chessBoard.playingPlayer != null && this.chessBoard.playingPlayer.PickedColor == figureBeneath.PieceColor)
                 {
                     Cursor.Current = Cursors.Hand;
                 }

@@ -12,7 +12,13 @@ namespace Chess
 {
     public partial class FramedChessboard : UserControl
     {
-        public ChessBoard ChessBoard { get; set; }
+        public ChessBoard chessBoard {
+            get
+            {
+                return this.board;
+            }
+        }
+
         public FramedChessboard()
         {
             InitializeComponent();

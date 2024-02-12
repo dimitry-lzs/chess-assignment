@@ -21,9 +21,12 @@ namespace Chess
             get { return this._PlayingPlayer; }
             set
             {
-                this.gameClock.Press(this._PlayingPlayer); // Player presses clock after making move
+                if (this._PlayingPlayer != null)
+                {
+                    this.gameClock.Press(this._PlayingPlayer); // Player presses clock after making move
+                }
                 this._PlayingPlayer = value;
-
+                this.chessBoard.playingPlayer = value;
             }
         }
         private Player _whitePlayer;
@@ -72,7 +75,8 @@ namespace Chess
                 this.whitePlayer = player2;
                 this.blackPlayer = player1;
             }
-            this.chessBoard = this.framedChessboard.ChessBoard;
+            this.chessBoard = this.framedChessboard.chessBoard;
+            this.chessBoard.gameScreen = this;
         }
 
         public void SetPlayingPlayer()

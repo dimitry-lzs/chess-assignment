@@ -40,7 +40,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.chessBoard1 = new Chess.ChessBoard();
+            this.board = new Chess.ChessBoard();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -198,18 +198,18 @@
             this.panel2.Size = new System.Drawing.Size(20, 532);
             this.panel2.TabIndex = 7;
             // 
-            // chessBoard1
+            // board
             // 
-            this.chessBoard1.BackColor = System.Drawing.Color.White;
-            this.chessBoard1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chessBoard1.BackgroundImage")));
-            this.chessBoard1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.chessBoard1.EnPassantPerformed = false;
-            this.chessBoard1.EnPassantTarget = null;
-            this.chessBoard1.Location = new System.Drawing.Point(20, 20);
-            this.chessBoard1.Margin = new System.Windows.Forms.Padding(0);
-            this.chessBoard1.Name = "chessBoard1";
-            this.chessBoard1.Size = new System.Drawing.Size(512, 512);
-            this.chessBoard1.TabIndex = 4;
+            this.board.BackColor = System.Drawing.Color.White;
+            this.board.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("board.BackgroundImage")));
+            this.board.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.board.EnPassantPerformed = false;
+            this.board.EnPassantTarget = null;
+            this.board.Location = new System.Drawing.Point(20, 20);
+            this.board.Margin = new System.Windows.Forms.Padding(0);
+            this.board.Name = "board";
+            this.board.Size = new System.Drawing.Size(512, 512);
+            this.board.TabIndex = 4;
             // 
             // panel1
             // 
@@ -346,7 +346,7 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.chessBoard1);
+            this.Controls.Add(this.board);
             this.Controls.Add(this.panel1);
             this.Name = "FramedChessboard";
             this.Size = new System.Drawing.Size(552, 552);
@@ -369,7 +369,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel2;
-        private ChessBoard chessBoard1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -379,5 +378,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label coordinate;
+        private ChessBoard board;
     }
 }

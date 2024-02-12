@@ -60,7 +60,6 @@
             // 
             // framedChessboard
             // 
-            this.framedChessboard.ChessBoard = null;
             this.framedChessboard.Location = new System.Drawing.Point(224, 100);
             this.framedChessboard.Name = "framedChessboard";
             this.framedChessboard.Size = new System.Drawing.Size(552, 552);
