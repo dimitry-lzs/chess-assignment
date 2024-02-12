@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Chess
@@ -35,7 +31,8 @@ namespace Chess
                             if (y == 3)
                             {
                                 this.Board.EnPassantTarget = this;
-                            } else
+                            }
+                            else
                             {
                                 this.Board.EnPassantTarget = null;
                             }
@@ -71,7 +68,8 @@ namespace Chess
                             if (y == 4)
                             {
                                 this.Board.EnPassantTarget = this;
-                            } else
+                            }
+                            else
                             {
                                 this.Board.EnPassantTarget = null;
                             }
@@ -89,7 +87,8 @@ namespace Chess
                         this.Board.PerformEnPassant();
                         return true;
                     }
-                } else if (Math.Abs(this.X - x) == 1 && y == this.Y - 1 && targetCellFigure.PieceColor == FigureColor.Black)
+                }
+                else if (Math.Abs(this.X - x) == 1 && y == this.Y - 1 && targetCellFigure.PieceColor == FigureColor.Black)
                 {
                     this.Board.EnPassantTarget = null;
                     return true;

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Chess
+﻿namespace Chess
 {
     public class Player
     {
@@ -19,7 +13,7 @@ namespace Chess
             this.PickedColor = color;
             this.Trophies = new Figure[16];
         }
-        public bool CanMove (FigureColor color)
+        public bool CanMove(FigureColor color)
         {
             return color == this.PickedColor;
         }

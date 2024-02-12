@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Chess
@@ -46,7 +42,7 @@ namespace Chess
             this.timer.Stop();
             this.Refresh();
         }
-        
+
         protected override void OnPaint(PaintEventArgs e)
         {
             e.Graphics.DrawImage(this.BlinkerImage, 0, 0, this._X, this._Y);

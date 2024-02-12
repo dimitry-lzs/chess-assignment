@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Chess
@@ -15,11 +8,14 @@ namespace Chess
         Timer timer;
         public Player player;
         private int _SecondsRemaining;
-        public int SecondsRemaining {
-            get {
+        public int SecondsRemaining
+        {
+            get
+            {
                 return this._SecondsRemaining;
             }
-            set {
+            set
+            {
                 this._SecondsRemaining = value;
                 if (this._SecondsRemaining < 0)
                 {

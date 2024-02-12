@@ -1,22 +1,12 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.Remoting.Contexts;
-using System.Text;
+using System.Media;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows;
-using System.Media;
-using System.IO;
 
 namespace Chess
 {
-    public partial class ChessBoard : UserControl  
+    public partial class ChessBoard : UserControl
     {
         private const int BOARD_SIZE = 8;
         private Cell[,] board = new Cell[BOARD_SIZE, BOARD_SIZE];
@@ -180,7 +170,8 @@ namespace Chess
                         this.EnPassantSound.Play();
                         this.EnPassantPerformed = false;
                         this.ShowEnPassantExplanation();
-                    } else
+                    }
+                    else
                     {
                         this.PlaceFigureSound.Play();
 

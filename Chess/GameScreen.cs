@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Chess
@@ -34,8 +27,9 @@ namespace Chess
         {
             get { return this._whitePlayer; }
 
-        set {
-            this._whitePlayer = value;
+            set
+            {
+                this._whitePlayer = value;
                 this.whitePlayerName.Text = value.Name;
             }
         }

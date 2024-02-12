@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.Media;
 using System.Windows.Forms;
 
 namespace Chess
@@ -39,10 +38,14 @@ namespace Chess
         private Image _Sprite;
         public ChessBoard Board { get; set; }
 
-        public Image Sprite { get
+        public Image Sprite
+        {
+            get
             {
                 return this._Sprite;
-            } set {
+            }
+            set
+            {
                 this._Sprite = value;
                 this.ImageLocation = new Point(this.X * Cell.SQUARE_SIZE, this.Y * Cell.SQUARE_SIZE);
             }
