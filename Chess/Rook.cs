@@ -22,7 +22,10 @@
             {
                 if (this.X == x || this.Y == y)
                 {
-                    return true;
+                    if (this.StraightPathIsClear(x, y))
+                    {
+                        return true;
+                    }
                 }
             }
 

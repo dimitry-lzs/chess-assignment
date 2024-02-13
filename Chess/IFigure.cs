@@ -22,6 +22,9 @@ namespace Chess
     {
         int X { get; set; }
         int Y { get; set; }
+
+        // This flag is used to determine if the figure has moved at least once.
+        // It is used to determine if the king can castle.
         bool HasMoved { get; set; }
         FigureColor PieceColor { get; }
         FigureType Name { get; }

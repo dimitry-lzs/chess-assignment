@@ -19,7 +19,10 @@ namespace Chess
         public SoundPlayer PlaceFigureSound;
         public SoundPlayer PromotionSound;
         public SoundPlayer EnPassantSound;
+        public SoundPlayer CastlingSound;
+
         public bool EnPassantPerformed { get; set; }
+        public bool CastlingPerformed { get; set; }
 
         public ChessBoard()
         {
@@ -163,6 +166,11 @@ namespace Chess
                     figure.X = cellX;
                     figure.Y = cellY;
 
+                    if (!figure.HasMoved)
+                    {
+                        figure.HasMoved = true; // Set the figure as moved at least once. Used for castling.
+                    }
+
                     if (this.gameScreen != null) this.gameScreen.SetPlayingPlayer();
 
                     if (this.EnPassantPerformed)
@@ -171,10 +179,14 @@ namespace Chess
                         this.EnPassantPerformed = false;
                         this.ShowEnPassantExplanation();
                     }
+                    else if (this.CastlingPerformed)
+                    {
+                        this.CastlingSound.Play();
+                        this.CastlingPerformed = false;
+                    }
                     else
                     {
                         this.PlaceFigureSound.Play();
-
                     }
 
                     if (figure.Name == FigureType.Pawn)
@@ -232,6 +244,16 @@ namespace Chess
             {
                 enPassantExplain.ShowDialog();
             }
+        }
+        public void PerformCastling(Figure rook, int x, int y)
+        {
+            int rookX = rook.X;
+            int rookY = rook.Y;
+            this.board[rookX, rookY].Figure = null;
+            this.board[x, y].Figure = rook;
+            rook.X = x;
+            rook.Y = y;
+            this.CastlingPerformed = true;
         }
     }
     internal class DraggingCanvas : Panel

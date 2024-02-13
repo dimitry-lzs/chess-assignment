@@ -25,7 +25,10 @@ namespace Chess
             {
                 if (Math.Abs(this.X - x) == Math.Abs(this.Y - y))
                 {
-                    return true;
+                    if (this.DiagonalPathIsClear(x, y))
+                    {
+                        return true;
+                    }
                 }
             }
             return false;
