@@ -38,7 +38,7 @@
             // clockBlinker
             // 
             this.clockBlinker.BackColor = System.Drawing.Color.Transparent;
-            this.clockBlinker.Location = new System.Drawing.Point(98, 56);
+            this.clockBlinker.Location = new System.Drawing.Point(98, 54);
             this.clockBlinker.Name = "clockBlinker";
             this.clockBlinker.Size = new System.Drawing.Size(13, 25);
             this.clockBlinker.TabIndex = 3;
