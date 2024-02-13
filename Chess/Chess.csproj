@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bishop.cs" />
+    <Compile Include="CastlingExplain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CastlingExplain.Designer.cs">
+      <DependentUpon>CastlingExplain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cell.cs" />
     <Compile Include="ChessBoard.cs">
       <SubType>UserControl</SubType>
@@ -132,6 +138,9 @@
     <Compile Include="TimeEnded.Designer.cs">
       <DependentUpon>TimeEnded.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CastlingExplain.resx">
+      <DependentUpon>CastlingExplain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChessBoard.resx">
       <DependentUpon>ChessBoard.cs</DependentUpon>
     </EmbeddedResource>
@@ -288,6 +297,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="assets\clock\digit-bg-off.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\castling.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\castlingBackground.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\castlingAnimation.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Content Include="assets\enPassantAnimation.gif" />

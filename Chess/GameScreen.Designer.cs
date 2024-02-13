@@ -68,9 +68,10 @@
             // gameClock
             // 
             this.gameClock.BackColor = System.Drawing.Color.Transparent;
-            this.gameClock.Location = new System.Drawing.Point(224, 20);
+            this.gameClock.Location = new System.Drawing.Point(224, 25);
+            this.gameClock.Margin = new System.Windows.Forms.Padding(0);
             this.gameClock.Name = "gameClock";
-            this.gameClock.Size = new System.Drawing.Size(552, 80);
+            this.gameClock.Size = new System.Drawing.Size(552, 75);
             this.gameClock.TabIndex = 6;
             // 
             // GameScreen

@@ -85,8 +85,9 @@
             this.Controls.Add(this.tensSeconds);
             this.Controls.Add(this.minutes);
             this.Controls.Add(this.tensMinutes);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "NixieClock";
-            this.Size = new System.Drawing.Size(209, 83);
+            this.Size = new System.Drawing.Size(209, 77);
             this.Load += new System.EventHandler(this.Clock_Load);
             this.ResumeLayout(false);
 

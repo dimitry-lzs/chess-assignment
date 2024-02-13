@@ -42,6 +42,7 @@ namespace Chess
             this.PlaceFigureSound = new SoundPlayer(Properties.Resources.placeFigure);
             this.PromotionSound = new SoundPlayer(Properties.Resources.promotion);
             this.EnPassantSound = new SoundPlayer(Properties.Resources.enPassant);
+            this.CastlingSound = new SoundPlayer(Properties.Resources.castling);
         }
 
         private void FillGrid()
@@ -183,6 +184,7 @@ namespace Chess
                     {
                         this.CastlingSound.Play();
                         this.CastlingPerformed = false;
+                        this.ShowCastlingExplanation();
                     }
                     else
                     {
@@ -243,6 +245,14 @@ namespace Chess
             using (EnPassantExplain enPassantExplain = new EnPassantExplain())
             {
                 enPassantExplain.ShowDialog();
+            }
+        }
+        private async void ShowCastlingExplanation()
+        {
+            await Task.Delay(3000);
+            using (CastlingExplain castlingExplain = new CastlingExplain())
+            {
+                castlingExplain.ShowDialog();
             }
         }
         public void PerformCastling(Figure rook, int x, int y)

@@ -57,8 +57,9 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.nixieClockBlack);
             this.Controls.Add(this.nixieClockWhite);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "GameClock";
-            this.Size = new System.Drawing.Size(552, 80);
+            this.Size = new System.Drawing.Size(552, 77);
             this.ResumeLayout(false);
 
         }
