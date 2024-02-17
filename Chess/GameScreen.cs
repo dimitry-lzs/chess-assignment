@@ -80,12 +80,25 @@ namespace Chess
             this.players[1] = this.PlayingPlayer;
         }
 
+        public void discardFigure(Figure figure)
+        {
+            if (figure.PieceColor == FigureColor.White)
+            {
+                this.blackPlayerBin.discardFigure(figure);
+            }
+            else
+            {
+                this.whitePlayerBin.discardFigure(figure);
+            }
+        }
+
         private void GameScreen_Load(object sender, EventArgs e)
         {
             this.Parent.ClientSize = this.Size;
             this.Parent.MinimumSize = this.Parent.Size;
             this.Parent.MaximumSize = this.Parent.Size;
             this.SetPlayingPlayer();
+            this.gameClock.Initialize(900);
             this.gameClock.Press(this.blackPlayer);
         }
     }

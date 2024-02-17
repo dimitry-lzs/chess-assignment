@@ -11,7 +11,11 @@ namespace Chess
             this.SetStyle(ControlStyles.ResizeRedraw |
                                ControlStyles.OptimizedDoubleBuffer |
                                               ControlStyles.AllPaintingInWmPaint, true);
-            this.nixieClockWhite.Start();
+        }
+        public void Initialize(int seconds)
+        {
+            this.nixieClockWhite.SecondsRemaining = seconds;
+            this.nixieClockBlack.SecondsRemaining = seconds;
         }
         public void Press(Player player)
         {

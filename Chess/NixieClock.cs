@@ -20,7 +20,10 @@ namespace Chess
                 if (this._SecondsRemaining < 0)
                 {
                     this.Stop();
-                    this.player.LostByTime();
+                    if (this.player != null)
+                    {
+                        this.player.LostByTime();
+                    }
                 }
                 this.SetTime();
             }

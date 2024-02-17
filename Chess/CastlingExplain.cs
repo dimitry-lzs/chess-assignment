@@ -32,5 +32,10 @@ namespace Chess
         {
             this.DialogResult = DialogResult.OK;
         }
+
+        private void readMore_Click(object sender, EventArgs e)
+        {
+            this.OpenLink(sender, null);
+        }
     }
 }

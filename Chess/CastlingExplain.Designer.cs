@@ -101,6 +101,7 @@
             this.readMore.Size = new System.Drawing.Size(98, 23);
             this.readMore.TabIndex = 6;
             this.readMore.Text = "Read more...";
+            this.readMore.Click += new System.EventHandler(this.readMore_Click);
             // 
             // okButton
             // 

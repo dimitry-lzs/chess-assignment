@@ -163,6 +163,11 @@ namespace Chess
                 if (figure.CanMove(cellX, cellY))
                 {
                     this.board[figure.X, figure.Y].Figure = null;
+
+                    if (this.board[cellX, cellY].Figure != null)
+                    {
+                        this.gameScreen.discardFigure(this.board[cellX, cellY].Figure);
+                    }
                     this.board[cellX, cellY].Figure = figure;
                     figure.X = cellX;
                     figure.Y = cellY;
@@ -193,11 +198,11 @@ namespace Chess
 
                     if (figure.Name == FigureType.Pawn)
                     {
-                        if (figure.PieceColor == FigureColor.White && figure.Y == 7)
+                        if (figure.PieceColor == FigureColor.White && figure.Y == 0)
                         {
                             (figure as Pawn).Promote();
                         }
-                        else if (figure.PieceColor == FigureColor.Black && figure.Y == 0)
+                        else if (figure.PieceColor == FigureColor.Black && figure.Y == 7)
                         {
                             (figure as Pawn).Promote();
                         }

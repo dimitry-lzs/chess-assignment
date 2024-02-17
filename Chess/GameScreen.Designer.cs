@@ -32,6 +32,8 @@
             this.whitePlayerName = new System.Windows.Forms.Label();
             this.framedChessboard = new Chess.FramedChessboard();
             this.gameClock = new Chess.GameClock();
+            this.blackPlayerBin = new Chess.Bin();
+            this.whitePlayerBin = new Chess.Bin();
             this.SuspendLayout();
             // 
             // blackPlayerName
@@ -74,12 +76,32 @@
             this.gameClock.Size = new System.Drawing.Size(552, 75);
             this.gameClock.TabIndex = 6;
             // 
+            // blackPlayerBin
+            // 
+            this.blackPlayerBin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(87)))), ((int)(((byte)(51)))));
+            this.blackPlayerBin.Location = new System.Drawing.Point(828, 184);
+            this.blackPlayerBin.Margin = new System.Windows.Forms.Padding(0);
+            this.blackPlayerBin.Name = "blackPlayerBin";
+            this.blackPlayerBin.Size = new System.Drawing.Size(64, 0);
+            this.blackPlayerBin.TabIndex = 10;
+            // 
+            // whitePlayerBin
+            // 
+            this.whitePlayerBin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(87)))), ((int)(((byte)(51)))));
+            this.whitePlayerBin.Location = new System.Drawing.Point(109, 184);
+            this.whitePlayerBin.Margin = new System.Windows.Forms.Padding(0);
+            this.whitePlayerBin.Name = "whitePlayerBin";
+            this.whitePlayerBin.Size = new System.Drawing.Size(64, 0);
+            this.whitePlayerBin.TabIndex = 11;
+            // 
             // GameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Chess.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.whitePlayerBin);
+            this.Controls.Add(this.blackPlayerBin);
             this.Controls.Add(this.framedChessboard);
             this.Controls.Add(this.gameClock);
             this.Controls.Add(this.whitePlayerName);
@@ -97,5 +119,7 @@
         private System.Windows.Forms.Label whitePlayerName;
         private GameClock gameClock;
         private FramedChessboard framedChessboard;
+        private Bin blackPlayerBin;
+        private Bin whitePlayerBin;
     }
 }
