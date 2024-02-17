@@ -8,7 +8,7 @@ namespace Chess
         public TimeEnded(Player player)
         {
             InitializeComponent();
-            this.lostPllayerName.Text = player.Name;
+            this.lostPlayerName.Text = player.Name;
         }
 
         private void Exit_Click(object sender, EventArgs e)

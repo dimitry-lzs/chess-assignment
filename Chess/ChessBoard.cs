@@ -26,6 +26,8 @@ namespace Chess
 
         public ChessBoard()
         {
+            this.Visible = false;
+            this.DoubleBuffered = true;
             InitializeComponent();
             this.SetStyle(ControlStyles.UserPaint |
                           ControlStyles.AllPaintingInWmPaint |
@@ -36,13 +38,18 @@ namespace Chess
             this.EnPassantPerformed = false;
             this.overlay = new DraggingCanvas(this);
             this.Controls.Add(this.overlay);
-            this.DoubleBuffered = true;
+            this.BackgroundImage = new Lazy<Image>(() => Properties.Resources.Chessboard).Value;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
+            this.overlay.Size = this.Size;
+            this.overlay.Location = new Point(0, 0);
+            this.Controls.SetChildIndex(this.overlay, 0);
             this.FillGrid();
             this.RaiseFigureSound = new SoundPlayer(Properties.Resources.raiseFigure);
             this.PlaceFigureSound = new SoundPlayer(Properties.Resources.placeFigure);
             this.PromotionSound = new SoundPlayer(Properties.Resources.promotion);
             this.EnPassantSound = new SoundPlayer(Properties.Resources.enPassant);
             this.CastlingSound = new SoundPlayer(Properties.Resources.castling);
+            this.Visible = true;
         }
 
         private void FillGrid()
@@ -104,11 +111,6 @@ namespace Chess
         {
             this.Size = new Size(BOARD_SIZE * Cell.SQUARE_SIZE, BOARD_SIZE * Cell.SQUARE_SIZE);
             this.InitBoard();
-            this.BackgroundImage = Properties.Resources.Chessboard;
-            this.BackgroundImageLayout = ImageLayout.Stretch;
-            this.overlay.Size = this.Size;
-            this.overlay.Location = new Point(0, 0);
-            this.Controls.SetChildIndex(this.overlay, 0);
         }
         protected override void OnPaint(PaintEventArgs e)
         {

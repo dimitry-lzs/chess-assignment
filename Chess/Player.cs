@@ -22,6 +22,7 @@
             this.Lost = true;
             using (TimeEnded timeEnded = new TimeEnded(this))
             {
+                timeEnded.lostPlayerName.Text = this.Name + " lost by time";
                 timeEnded.ShowDialog();
             }
         }

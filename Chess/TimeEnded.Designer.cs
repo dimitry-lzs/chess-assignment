@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lostPllayerName = new System.Windows.Forms.Label();
+            this.lostPlayerName = new System.Windows.Forms.Label();
             this.article = new System.Windows.Forms.Label();
             this.PlayAgain = new System.Windows.Forms.Label();
             this.MainMenu = new System.Windows.Forms.Label();
             this.Exit = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // lostPllayerName
+            // lostPlayerName
             // 
-            this.lostPllayerName.AutoSize = true;
-            this.lostPllayerName.BackColor = System.Drawing.Color.Transparent;
-            this.lostPllayerName.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lostPllayerName.ForeColor = System.Drawing.Color.Moccasin;
-            this.lostPllayerName.Location = new System.Drawing.Point(142, 26);
-            this.lostPllayerName.Name = "lostPllayerName";
-            this.lostPllayerName.Size = new System.Drawing.Size(265, 29);
-            this.lostPllayerName.TabIndex = 6;
-            this.lostPllayerName.Text = "Player White Lost by time";
+            this.lostPlayerName.AutoSize = true;
+            this.lostPlayerName.BackColor = System.Drawing.Color.Transparent;
+            this.lostPlayerName.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lostPlayerName.ForeColor = System.Drawing.Color.Moccasin;
+            this.lostPlayerName.Location = new System.Drawing.Point(152, 58);
+            this.lostPlayerName.Name = "lostPlayerName";
+            this.lostPlayerName.Size = new System.Drawing.Size(265, 29);
+            this.lostPlayerName.TabIndex = 6;
+            this.lostPlayerName.Text = "Player White Lost by time";
             // 
             // article
             // 
@@ -114,7 +114,7 @@
             this.Controls.Add(this.MainMenu);
             this.Controls.Add(this.PlayAgain);
             this.Controls.Add(this.article);
-            this.Controls.Add(this.lostPllayerName);
+            this.Controls.Add(this.lostPlayerName);
             this.Name = "TimeEnded";
             this.Text = "TimeEnded";
             this.ResumeLayout(false);
@@ -123,11 +123,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lostPllayerName;
         private System.Windows.Forms.Label article;
         private System.Windows.Forms.Label PlayAgain;
         private System.Windows.Forms.Label MainMenu;
         private System.Windows.Forms.Label Exit;
+        public System.Windows.Forms.Label lostPlayerName;
     }
 }

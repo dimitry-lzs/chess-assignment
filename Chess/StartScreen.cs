@@ -22,7 +22,7 @@ namespace Chess
 
             this.Parent.Controls.Add(setupGame);
 
-            this.Parent.ClientSize = new Size(800, 700);
+            this.Parent.ClientSize = new Size(600, 340);
 
             this.Parent.Controls.Remove(this);
 

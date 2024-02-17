@@ -67,13 +67,13 @@
             // 
             // whitePlayerName
             // 
-            this.whitePlayerName.BackColor = System.Drawing.Color.SaddleBrown;
+            this.whitePlayerName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(87)))), ((int)(((byte)(51)))));
             this.whitePlayerName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.whitePlayerName.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.whitePlayerName.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.whitePlayerName.ForeColor = System.Drawing.Color.Moccasin;
             this.whitePlayerName.Location = new System.Drawing.Point(31, 171);
             this.whitePlayerName.Name = "whitePlayerName";
-            this.whitePlayerName.Size = new System.Drawing.Size(214, 27);
+            this.whitePlayerName.Size = new System.Drawing.Size(214, 19);
             this.whitePlayerName.TabIndex = 8;
             // 
             // contextMenuStrip1
@@ -83,13 +83,13 @@
             // 
             // blackPlayerName
             // 
-            this.blackPlayerName.BackColor = System.Drawing.Color.SaddleBrown;
+            this.blackPlayerName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(87)))), ((int)(((byte)(51)))));
             this.blackPlayerName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.blackPlayerName.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.blackPlayerName.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.blackPlayerName.ForeColor = System.Drawing.Color.Moccasin;
-            this.blackPlayerName.Location = new System.Drawing.Point(370, 171);
+            this.blackPlayerName.Location = new System.Drawing.Point(357, 171);
             this.blackPlayerName.Name = "blackPlayerName";
-            this.blackPlayerName.Size = new System.Drawing.Size(214, 27);
+            this.blackPlayerName.Size = new System.Drawing.Size(214, 19);
             this.blackPlayerName.TabIndex = 9;
             // 
             // beginGame
@@ -118,7 +118,7 @@
             this.Controls.Add(this.playerBlack);
             this.Controls.Add(this.playerWhite);
             this.Name = "SetupGame";
-            this.Size = new System.Drawing.Size(610, 383);
+            this.Size = new System.Drawing.Size(600, 340);
             this.ResumeLayout(false);
             this.PerformLayout();
 

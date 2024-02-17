@@ -20,9 +20,13 @@ namespace Chess
             Player whitesPlayer = new Player(this.whitePlayerName.Text, FigureColor.White);
             Player blacksPlayer = new Player(this.blackPlayerName.Text, FigureColor.Black);
             GameScreen gameScreen = new GameScreen(whitesPlayer, blacksPlayer);
+            gameScreen.Visible = false;
             this.Parent.ClientSize = gameScreen.Size;
             this.Parent.Controls.Add(gameScreen);
+
             this.Parent.Controls.Remove(this);
+            this.Dispose();
+            gameScreen.Visible = true;
         }
     }
 }

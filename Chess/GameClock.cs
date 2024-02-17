@@ -4,6 +4,20 @@ namespace Chess
 {
     public partial class GameClock : UserControl
     {
+        public NixieClock whitePlayerClock
+        {
+            get
+            {
+                return this.nixieClockWhite;
+            }
+        }
+        public NixieClock blackPlayerClock
+        {
+            get
+            {
+                return this.nixieClockBlack;
+            }
+        }
         public GameClock()
         {
             InitializeComponent();

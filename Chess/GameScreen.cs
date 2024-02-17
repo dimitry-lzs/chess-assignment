@@ -23,7 +23,7 @@ namespace Chess
             }
         }
         private Player _whitePlayer;
-        Player whitePlayer
+        public Player whitePlayer
         {
             get { return this._whitePlayer; }
 
@@ -35,7 +35,7 @@ namespace Chess
         }
 
         private Player _blackPlayer;
-        Player blackPlayer
+        public Player blackPlayer
         {
             get { return this._blackPlayer; }
 
@@ -71,6 +71,8 @@ namespace Chess
             }
             this.chessBoard = this.framedChessboard.chessBoard;
             this.chessBoard.gameScreen = this;
+            this.gameClock.whitePlayerClock.player = this.whitePlayer;
+            this.gameClock.blackPlayerClock.player = this.blackPlayer;
         }
 
         public void SetPlayingPlayer()
@@ -98,7 +100,7 @@ namespace Chess
             this.Parent.MinimumSize = this.Parent.Size;
             this.Parent.MaximumSize = this.Parent.Size;
             this.SetPlayingPlayer();
-            this.gameClock.Initialize(900);
+            this.gameClock.Initialize(10);
             this.gameClock.Press(this.blackPlayer);
         }
     }
