@@ -350,57 +350,57 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bin.cs">
+    <Compile Include="Board\Bin.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Bin.Designer.cs">
+    <Compile Include="Board\Bin.Designer.cs">
       <DependentUpon>Bin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Bishop.cs" />
-    <Compile Include="CastlingExplain.cs">
+    <Compile Include="Figures\Bishop.cs" />
+    <Compile Include="Dialogues\CastlingExplain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CastlingExplain.Designer.cs">
+    <Compile Include="Dialogues\CastlingExplain.Designer.cs">
       <DependentUpon>CastlingExplain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cell.cs" />
-    <Compile Include="ChessBoard.cs">
+    <Compile Include="Board\Cell.cs" />
+    <Compile Include="Board\ChessBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ChessBoard.Designer.cs">
+    <Compile Include="Board\ChessBoard.Designer.cs">
       <DependentUpon>ChessBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="FramedChessboard.cs">
+    <Compile Include="Board\FramedChessboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FramedChessboard.Designer.cs">
+    <Compile Include="Board\FramedChessboard.Designer.cs">
       <DependentUpon>FramedChessboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="GameClock.cs">
+    <Compile Include="Clock\GameClock.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GameClock.Designer.cs">
+    <Compile Include="Clock\GameClock.Designer.cs">
       <DependentUpon>GameClock.cs</DependentUpon>
     </Compile>
-    <Compile Include="NixieBlinker.cs">
+    <Compile Include="Clock\NixieBlinker.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="NixieClock.cs">
+    <Compile Include="Clock\NixieClock.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="NixieClock.Designer.cs">
+    <Compile Include="Clock\NixieClock.Designer.cs">
       <DependentUpon>NixieClock.cs</DependentUpon>
     </Compile>
-    <Compile Include="Nixie.cs">
+    <Compile Include="Clock\Nixie.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="EnPassantExplain.cs">
+    <Compile Include="Dialogues\EnPassantExplain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EnPassantExplain.Designer.cs">
+    <Compile Include="Dialogues\EnPassantExplain.Designer.cs">
       <DependentUpon>EnPassantExplain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Figure.cs">
+    <Compile Include="Figures\Figure.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="GameScreen.cs">
@@ -409,27 +409,27 @@
     <Compile Include="GameScreen.Designer.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="IFigure.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Figures\IFigure.cs" />
+    <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="King.cs" />
-    <Compile Include="Knight.cs" />
-    <Compile Include="Pawn.cs" />
+    <Compile Include="Figures\King.cs" />
+    <Compile Include="Figures\Knight.cs" />
+    <Compile Include="Figures\Pawn.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="PromotionForm.cs">
+    <Compile Include="Dialogues\PromotionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PromotionForm.Designer.cs">
+    <Compile Include="Dialogues\PromotionForm.Designer.cs">
       <DependentUpon>PromotionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Queen.cs" />
-    <Compile Include="Rook.cs" />
+    <Compile Include="Figures\Queen.cs" />
+    <Compile Include="Figures\Rook.cs" />
     <Compile Include="SetupGame.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -442,42 +442,42 @@
     <Compile Include="StartScreen.Designer.cs">
       <DependentUpon>StartScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="TimeEnded.cs">
+    <Compile Include="Dialogues\TimeEnded.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TimeEnded.Designer.cs">
+    <Compile Include="Dialogues\TimeEnded.Designer.cs">
       <DependentUpon>TimeEnded.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Bin.resx">
+    <EmbeddedResource Include="Board\Bin.resx">
       <DependentUpon>Bin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CastlingExplain.resx">
+    <EmbeddedResource Include="Dialogues\CastlingExplain.resx">
       <DependentUpon>CastlingExplain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChessBoard.resx">
+    <EmbeddedResource Include="Board\ChessBoard.resx">
       <DependentUpon>ChessBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FramedChessboard.resx">
+    <EmbeddedResource Include="Board\FramedChessboard.resx">
       <DependentUpon>FramedChessboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GameClock.resx">
+    <EmbeddedResource Include="Clock\GameClock.resx">
       <DependentUpon>GameClock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NixieClock.resx">
+    <EmbeddedResource Include="Clock\NixieClock.resx">
       <DependentUpon>NixieClock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EnPassantExplain.resx">
+    <EmbeddedResource Include="Dialogues\EnPassantExplain.resx">
       <DependentUpon>EnPassantExplain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GameScreen.resx">
       <DependentUpon>GameScreen.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="PromotionForm.resx">
+    <EmbeddedResource Include="Dialogues\PromotionForm.resx">
       <DependentUpon>PromotionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -496,7 +496,7 @@
     <EmbeddedResource Include="StartScreen.resx">
       <DependentUpon>StartScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TimeEnded.resx">
+    <EmbeddedResource Include="Dialogues\TimeEnded.resx">
       <DependentUpon>TimeEnded.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
