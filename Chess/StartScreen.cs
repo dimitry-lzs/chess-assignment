@@ -38,7 +38,11 @@ namespace Chess
 
         private void historyButton_Click(object sender, EventArgs e)
         {
-
+            History history = new History();
+            if (history.ShowDialog() == DialogResult.OK)
+            {
+                history.Dispose();
+            }
         }
 
         private void StartScreen_Load(object sender, EventArgs e)

@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Chess.Models;
+using System;
+using System.Data.Entity;
+using System.Data.SQLite;
 using System.Windows.Forms;
+
 
 namespace Chess
 {
@@ -9,6 +13,8 @@ namespace Chess
         ChessBoard chessBoard;
 
         Player _PlayingPlayer;
+        public Db Database { get; set; }
+        public Game game { get; set; }
         Player PlayingPlayer
         {
             get { return this._PlayingPlayer; }
@@ -53,6 +59,8 @@ namespace Chess
             this.SetStyle(ControlStyles.ResizeRedraw |
                                          ControlStyles.OptimizedDoubleBuffer |
                                                                   ControlStyles.AllPaintingInWmPaint, true);
+            player1.gameScreen = this;
+            player2.gameScreen = this;
             this.players = new Player[2];
 
             if (player1.PickedColor == FigureColor.White)
@@ -73,6 +81,14 @@ namespace Chess
             this.chessBoard.gameScreen = this;
             this.gameClock.whitePlayerClock.player = this.whitePlayer;
             this.gameClock.blackPlayerClock.player = this.blackPlayer;
+
+            this.Database = new Db();
+
+            this.Database.CreatePlayer(this.whitePlayer.playerModel);
+            this.Database.CreatePlayer(this.blackPlayer.playerModel);
+
+            this.game = new Game() { WhitePlayerId = this.whitePlayer.playerModel.Id, BlackPlayerId = this.blackPlayer.playerModel.Id, StartTime = DateTime.Now };
+            this.Database.CreateGame(this.game);
         }
 
         public void SetPlayingPlayer()
@@ -102,6 +118,59 @@ namespace Chess
             this.SetPlayingPlayer();
             this.gameClock.Initialize(10);
             this.gameClock.Press(this.blackPlayer);
+        }
+        public void EndGame(ResultType result)
+        {
+            this.game.EndTime = DateTime.Now;
+            switch (result)
+            {
+                case ResultType.WhiteWins:
+                    this.game.Result = "White wins";
+                    this.game.WinnerId = this.whitePlayer.playerModel.Id;
+                    break;
+                case ResultType.BlackWins:
+                    this.game.Result = "Black wins";
+                    this.game.WinnerId = this.blackPlayer.playerModel.Id;
+                    break;
+                case ResultType.WhiteResigns:
+                    this.game.Result = "White resigns";
+                    this.game.WinnerId = this.blackPlayer.playerModel.Id;
+                    break;
+                case ResultType.BlackResigns:
+                    this.game.Result = "Black resigns";
+                    this.game.WinnerId = this.whitePlayer.playerModel.Id;
+                    break;
+                case ResultType.Draw:
+                    this.game.Result = "Draw";
+                    break;
+            }
+
+            this.Database.UpdateGame(this.game);
+        }
+
+        private void whiteWinButton_Click(object sender, EventArgs e)
+        {
+            this.EndGame(ResultType.WhiteWins);
+        }
+
+        private void whiteResignButton_Click(object sender, EventArgs e)
+        {
+            this.EndGame(ResultType.WhiteResigns);
+        }
+
+        private void blackWinButton_Click(object sender, EventArgs e)
+        {
+            this.EndGame(ResultType.BlackWins);
+        }
+
+        private void blackResignButton_Click(object sender, EventArgs e)
+        {
+            this.EndGame(ResultType.BlackResigns);
+        }
+
+        private void drawButton_Click(object sender, EventArgs e)
+        {
+            this.EndGame(ResultType.Draw);
         }
     }
 }

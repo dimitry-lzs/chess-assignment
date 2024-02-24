@@ -77,6 +77,7 @@
             this.whiteWinButton.Size = new System.Drawing.Size(77, 17);
             this.whiteWinButton.TabIndex = 12;
             this.whiteWinButton.Text = "Declare Win";
+            this.whiteWinButton.Click += new System.EventHandler(this.whiteWinButton_Click);
             // 
             // whiteResignButton
             // 
@@ -90,6 +91,7 @@
             this.whiteResignButton.Size = new System.Drawing.Size(43, 17);
             this.whiteResignButton.TabIndex = 13;
             this.whiteResignButton.Text = "Resign";
+            this.whiteResignButton.Click += new System.EventHandler(this.whiteResignButton_Click);
             // 
             // drawButton
             // 
@@ -103,6 +105,7 @@
             this.drawButton.Size = new System.Drawing.Size(86, 17);
             this.drawButton.TabIndex = 14;
             this.drawButton.Text = "Agree on draw";
+            this.drawButton.Click += new System.EventHandler(this.drawButton_Click);
             // 
             // blackResignButton
             // 
@@ -116,6 +119,7 @@
             this.blackResignButton.Size = new System.Drawing.Size(43, 17);
             this.blackResignButton.TabIndex = 15;
             this.blackResignButton.Text = "Resign";
+            this.blackResignButton.Click += new System.EventHandler(this.blackResignButton_Click);
             // 
             // blackWinButton
             // 
@@ -129,6 +133,7 @@
             this.blackWinButton.Size = new System.Drawing.Size(77, 17);
             this.blackWinButton.TabIndex = 16;
             this.blackWinButton.Text = "Declare Win";
+            this.blackWinButton.Click += new System.EventHandler(this.blackWinButton_Click);
             // 
             // whitePlayerBin
             // 

@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Media;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Chess.Models;
 
 namespace Chess
 {
@@ -146,6 +147,11 @@ namespace Chess
             return board[columnIndex, rowIndex];
         }
 
+        public string GetCellName(int x, int y)
+        {
+            return ((char)('a' + x)).ToString() + (8 - y).ToString();
+        }
+
         public Figure GetFigure(int x, int y)
         {
             return this.board[x, y].Figure;
@@ -170,6 +176,19 @@ namespace Chess
                     {
                         this.gameScreen.discardFigure(this.board[cellX, cellY].Figure);
                     }
+
+                    Move move = new Move
+                    {
+                        GameId = this.gameScreen.game.Id,
+                        PlayerId = this.playingPlayer.playerModel.Id,
+                        From = this.GetCellName(figure.X, figure.Y),
+                        To = this.GetCellName(cellX, cellY),
+                        Time = DateTime.Now,
+                        figureName = figure.Name
+                    };
+
+                    this.gameScreen.Database.SaveMove(move);
+
                     this.board[cellX, cellY].Figure = figure;
                     figure.X = cellX;
                     figure.Y = cellY;
@@ -358,5 +377,4 @@ namespace Chess
             }
         }
     }
-
 }
