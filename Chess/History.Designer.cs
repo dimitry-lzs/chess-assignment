@@ -30,13 +30,16 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(History));
             this.historyTitle = new System.Windows.Forms.Label();
             this.gamesHistoryTable = new System.Windows.Forms.DataGridView();
-            this.gameStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gameEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.whitePlayerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.blackPlayerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resultText = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EndTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DurationSeconds = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WhitePlayerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BlackPlayerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WinnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Result = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gamesHistoryTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +49,7 @@
             this.historyTitle.BackColor = System.Drawing.Color.Transparent;
             this.historyTitle.Font = new System.Drawing.Font("Comic Sans MS", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.historyTitle.ForeColor = System.Drawing.Color.Moccasin;
-            this.historyTitle.Location = new System.Drawing.Point(103, 62);
+            this.historyTitle.Location = new System.Drawing.Point(62, 67);
             this.historyTitle.Name = "historyTitle";
             this.historyTitle.Size = new System.Drawing.Size(252, 49);
             this.historyTitle.TabIndex = 0;
@@ -68,14 +71,16 @@
             this.gamesHistoryTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gamesHistoryTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gamesHistoryTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.gameStart,
-            this.gameEnd,
-            this.whitePlayerName,
-            this.blackPlayerName,
-            this.resultText});
+            this.StartTime,
+            this.EndTime,
+            this.DurationSeconds,
+            this.WhitePlayerName,
+            this.BlackPlayerName,
+            this.WinnerName,
+            this.Result});
             this.gamesHistoryTable.EnableHeadersVisualStyles = false;
             this.gamesHistoryTable.GridColor = System.Drawing.Color.Moccasin;
-            this.gamesHistoryTable.Location = new System.Drawing.Point(112, 237);
+            this.gamesHistoryTable.Location = new System.Drawing.Point(71, 235);
             this.gamesHistoryTable.Name = "gamesHistoryTable";
             this.gamesHistoryTable.RowHeadersVisible = false;
             this.gamesHistoryTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -86,38 +91,64 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Moccasin;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.gamesHistoryTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.gamesHistoryTable.Size = new System.Drawing.Size(505, 174);
+            this.gamesHistoryTable.Size = new System.Drawing.Size(868, 174);
             this.gamesHistoryTable.TabIndex = 2;
             // 
-            // gameStart
+            // StartTime
             // 
-            this.gameStart.HeaderText = "Started";
-            this.gameStart.Name = "gameStart";
-            this.gameStart.Width = 91;
+            this.StartTime.DataPropertyName = "StartTime";
+            this.StartTime.HeaderText = "Started";
+            this.StartTime.Name = "StartTime";
+            this.StartTime.ReadOnly = true;
+            this.StartTime.Width = 91;
             // 
-            // gameEnd
+            // EndTime
             // 
-            this.gameEnd.HeaderText = "Ended";
-            this.gameEnd.Name = "gameEnd";
-            this.gameEnd.Width = 77;
+            this.EndTime.DataPropertyName = "EndTime";
+            this.EndTime.HeaderText = "Ended";
+            this.EndTime.Name = "EndTime";
+            this.EndTime.ReadOnly = true;
+            this.EndTime.Width = 77;
             // 
-            // whitePlayerName
+            // DurationSeconds
             // 
-            this.whitePlayerName.HeaderText = "White Player";
-            this.whitePlayerName.Name = "whitePlayerName";
-            this.whitePlayerName.Width = 129;
+            this.DurationSeconds.DataPropertyName = "DurationSeconds";
+            this.DurationSeconds.HeaderText = "Duration";
+            this.DurationSeconds.Name = "DurationSeconds";
+            this.DurationSeconds.ReadOnly = true;
+            this.DurationSeconds.Width = 97;
             // 
-            // blackPlayerName
+            // WhitePlayerName
             // 
-            this.blackPlayerName.HeaderText = "Black Player";
-            this.blackPlayerName.Name = "blackPlayerName";
-            this.blackPlayerName.Width = 124;
+            this.WhitePlayerName.DataPropertyName = "WhitePlayerName";
+            this.WhitePlayerName.HeaderText = "White Player";
+            this.WhitePlayerName.Name = "WhitePlayerName";
+            this.WhitePlayerName.ReadOnly = true;
+            this.WhitePlayerName.Width = 129;
             // 
-            // resultText
+            // BlackPlayerName
             // 
-            this.resultText.HeaderText = "Result";
-            this.resultText.Name = "resultText";
-            this.resultText.Width = 79;
+            this.BlackPlayerName.DataPropertyName = "BlackPlayerName";
+            this.BlackPlayerName.HeaderText = "Black Player";
+            this.BlackPlayerName.Name = "BlackPlayerName";
+            this.BlackPlayerName.ReadOnly = true;
+            this.BlackPlayerName.Width = 124;
+            // 
+            // WinnerName
+            // 
+            this.WinnerName.DataPropertyName = "WinnerName";
+            this.WinnerName.HeaderText = "Winner";
+            this.WinnerName.Name = "WinnerName";
+            this.WinnerName.ReadOnly = true;
+            this.WinnerName.Width = 87;
+            // 
+            // Result
+            // 
+            this.Result.DataPropertyName = "Result";
+            this.Result.HeaderText = "Result";
+            this.Result.Name = "Result";
+            this.Result.ReadOnly = true;
+            this.Result.Width = 79;
             // 
             // History
             // 
@@ -126,11 +157,16 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(87)))), ((int)(((byte)(51)))));
             this.BackgroundImage = global::Chess.Properties.Resources.historyBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1003, 622);
+            this.ClientSize = new System.Drawing.Size(1004, 621);
             this.Controls.Add(this.gamesHistoryTable);
             this.Controls.Add(this.historyTitle);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(1020, 660);
+            this.MinimumSize = new System.Drawing.Size(1020, 660);
             this.Name = "History";
             this.Text = "History";
+            this.Load += new System.EventHandler(this.History_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gamesHistoryTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -141,10 +177,12 @@
 
         private System.Windows.Forms.Label historyTitle;
         private System.Windows.Forms.DataGridView gamesHistoryTable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gameStart;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gameEnd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn whitePlayerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn blackPlayerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn resultText;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StartTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EndTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DurationSeconds;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WhitePlayerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BlackPlayerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WinnerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Result;
     }
 }

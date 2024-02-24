@@ -112,13 +112,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.beginGame);
             this.Controls.Add(this.blackPlayerName);
             this.Controls.Add(this.whitePlayerName);
             this.Controls.Add(this.playerBlack);
             this.Controls.Add(this.playerWhite);
             this.Name = "SetupGame";
-            this.Size = new System.Drawing.Size(600, 340);
+            this.Size = new System.Drawing.Size(600, 320);
             this.ResumeLayout(false);
             this.PerformLayout();
 

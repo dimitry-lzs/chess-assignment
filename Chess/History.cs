@@ -14,13 +14,18 @@ namespace Chess
     public partial class History : Form
     {
         Db dataBase;
-        List<Game> games;
+        List<GameData> games;
         public History()
         {
             InitializeComponent();
             this.dataBase = new Db();
             this.games = this.dataBase.FetchGames();
-            this.gamesHistoryTable.DataSource = this.games;
         }
+
+        private void History_Load(object sender, EventArgs e)
+        {
+            this.gamesHistoryTable.AutoGenerateColumns = false;
+            this.gamesHistoryTable.DataSource = this.games;
+        } 
     }
 }

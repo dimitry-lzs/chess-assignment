@@ -269,6 +269,12 @@
     <Compile Include="Figures\Figure.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="GameEnded.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameEnded.Designer.cs">
+      <DependentUpon>GameEnded.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -276,6 +282,12 @@
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Figures\IFigure.cs" />
+    <Compile Include="GameWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameWindow.Designer.cs">
+      <DependentUpon>GameWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="History.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -345,6 +357,12 @@
     <EmbeddedResource Include="Dialogues\EnPassantExplain.resx">
       <DependentUpon>EnPassantExplain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GameEnded.resx">
+      <DependentUpon>GameEnded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameWindow.resx">
+      <DependentUpon>GameWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="History.resx">
       <DependentUpon>History.cs</DependentUpon>
     </EmbeddedResource>
@@ -393,6 +411,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\gameEnd.jpg" />
     <Content Include="assets\historyBackground.jpeg" />
     <Resource Include="assets\background.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -587,6 +606,7 @@
     </Reference>
     <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -130,6 +130,10 @@
             this.Controls.Add(this.article);
             this.Controls.Add(this.subTitle);
             this.Controls.Add(this.title);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(755, 400);
+            this.MinimumSize = new System.Drawing.Size(755, 400);
             this.Name = "EnPassantExplain";
             this.Text = "EnPassantExplain";
             ((System.ComponentModel.ISupportInitialize)(this.enPassantAnimation)).EndInit();

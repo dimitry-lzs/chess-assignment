@@ -44,5 +44,10 @@ namespace Chess
                 this.nixieClockWhite.Start();
             }
         }
+        public void Stop()
+        {
+            this.nixieClockWhite.Stop();
+            this.nixieClockBlack.Stop();
+        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TimeEnded));
             this.lostPlayerName = new System.Windows.Forms.Label();
             this.article = new System.Windows.Forms.Label();
             this.PlayAgain = new System.Windows.Forms.Label();
@@ -115,6 +116,10 @@
             this.Controls.Add(this.PlayAgain);
             this.Controls.Add(this.article);
             this.Controls.Add(this.lostPlayerName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(566, 448);
+            this.MinimumSize = new System.Drawing.Size(566, 448);
             this.Name = "TimeEnded";
             this.Text = "TimeEnded";
             this.ResumeLayout(false);

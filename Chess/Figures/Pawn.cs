@@ -45,7 +45,7 @@ namespace Chess
                         return true;
                     }
                     Figure enPassantCell = this.Board.GetFigure(x, y - 1);
-                    if (enPassantCell != null && enPassantCell == this.Board.EnPassantTarget)
+                    if (enPassantCell != null && enPassantCell == this.Board.EnPassantTarget && Math.Abs(this.Y - y) < 2)
                     {
                         this.Board.PerformEnPassant();
                         return true;
@@ -82,7 +82,7 @@ namespace Chess
                         return true;
                     }
                     Figure enPassantCell = this.Board.GetFigure(x, y + 1);
-                    if (enPassantCell != null && enPassantCell == this.Board.EnPassantTarget)
+                    if (enPassantCell != null && enPassantCell == this.Board.EnPassantTarget && Math.Abs(this.Y - y) < 2)
                     {
                         this.Board.PerformEnPassant();
                         return true;

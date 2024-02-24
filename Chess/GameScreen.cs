@@ -116,7 +116,7 @@ namespace Chess
             this.Parent.MinimumSize = this.Parent.Size;
             this.Parent.MaximumSize = this.Parent.Size;
             this.SetPlayingPlayer();
-            this.gameClock.Initialize(10);
+            this.gameClock.Initialize(600);
             this.gameClock.Press(this.blackPlayer);
         }
         public void EndGame(ResultType result)
@@ -146,6 +146,16 @@ namespace Chess
             }
 
             this.Database.UpdateGame(this.game);
+            this.gameClock.Stop();
+
+            using (GameEnded gameEnded = new GameEnded(this.game))
+            {
+                gameEnded.ShowDialog();
+                if (gameEnded.DialogResult == DialogResult.OK)
+                {
+                    this.Parent.Dispose();
+                }
+            }
         }
 
         private void whiteWinButton_Click(object sender, EventArgs e)

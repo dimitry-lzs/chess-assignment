@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PromotionForm));
             this.promotionLabel = new System.Windows.Forms.Label();
             this.knightPromotion = new System.Windows.Forms.PictureBox();
             this.queenPromotion = new System.Windows.Forms.PictureBox();
@@ -98,6 +99,10 @@
             this.Controls.Add(this.knightPromotion);
             this.Controls.Add(this.promotionLabel);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(600, 325);
+            this.MinimumSize = new System.Drawing.Size(600, 325);
             this.Name = "PromotionForm";
             this.Text = "PromotionForm";
             ((System.ComponentModel.ISupportInitialize)(this.knightPromotion)).EndInit();

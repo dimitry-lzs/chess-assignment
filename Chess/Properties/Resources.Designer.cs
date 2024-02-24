@@ -401,6 +401,16 @@ namespace Chess.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gameEnd {
+            get {
+                object obj = ResourceManager.GetObject("gameEnd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap historyBackground {
             get {
                 object obj = ResourceManager.GetObject("historyBackground", resourceCulture);

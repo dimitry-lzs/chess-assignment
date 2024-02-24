@@ -17,18 +17,8 @@ namespace Chess
 
         private void startButton_Click(object sender, EventArgs e)
         {
-            SetupGame setupGame = new SetupGame();
-            setupGame.Visible = false;
-
-            this.Parent.Controls.Add(setupGame);
-
-            this.Parent.ClientSize = new Size(600, 340);
-
-            this.Parent.Controls.Remove(this);
-
-            this.Dispose();
-
-            setupGame.Visible = true;
+            GameWindow gameWindow = new GameWindow();
+            gameWindow.ShowDialog();
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -39,10 +29,7 @@ namespace Chess
         private void historyButton_Click(object sender, EventArgs e)
         {
             History history = new History();
-            if (history.ShowDialog() == DialogResult.OK)
-            {
-                history.Dispose();
-            }
+            history.ShowDialog();
         }
 
         private void StartScreen_Load(object sender, EventArgs e)

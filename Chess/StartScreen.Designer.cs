@@ -42,9 +42,9 @@
             this.startButton.ForeColor = System.Drawing.Color.Moccasin;
             this.startButton.Location = new System.Drawing.Point(17, 0);
             this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(105, 45);
+            this.startButton.Size = new System.Drawing.Size(183, 45);
             this.startButton.TabIndex = 5;
-            this.startButton.Text = "Start";
+            this.startButton.Text = "New Game";
             this.startButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
@@ -55,7 +55,7 @@
             this.historyButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.historyButton.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.historyButton.ForeColor = System.Drawing.Color.Moccasin;
-            this.historyButton.Location = new System.Drawing.Point(1, 90);
+            this.historyButton.Location = new System.Drawing.Point(38, 89);
             this.historyButton.Name = "historyButton";
             this.historyButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.historyButton.Size = new System.Drawing.Size(135, 45);
@@ -72,7 +72,7 @@
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.ForeColor = System.Drawing.Color.Moccasin;
-            this.exitButton.Location = new System.Drawing.Point(27, 180);
+            this.exitButton.Location = new System.Drawing.Point(66, 182);
             this.exitButton.Name = "exitButton";
             this.exitButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.exitButton.Size = new System.Drawing.Size(83, 45);
@@ -90,7 +90,7 @@
             this.Controls.Add(this.historyButton);
             this.Controls.Add(this.exitButton);
             this.Name = "StartScreen";
-            this.Size = new System.Drawing.Size(138, 227);
+            this.Size = new System.Drawing.Size(211, 227);
             this.Load += new System.EventHandler(this.StartScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

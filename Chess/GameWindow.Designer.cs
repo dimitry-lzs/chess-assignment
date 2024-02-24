@@ -1,6 +1,6 @@
 ﻿namespace Chess
 {
-    partial class Main
+    partial class GameWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -28,37 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.startScreen = new Chess.StartScreen();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameWindow));
+            this.setupGame1 = new Chess.SetupGame();
             this.SuspendLayout();
             // 
-            // startScreen
+            // setupGame1
             // 
-            this.startScreen.BackColor = System.Drawing.Color.Transparent;
-            this.startScreen.Location = new System.Drawing.Point(199, 128);
-            this.startScreen.Name = "startScreen";
-            this.startScreen.Size = new System.Drawing.Size(205, 227);
-            this.startScreen.TabIndex = 0;
+            this.setupGame1.BackColor = System.Drawing.Color.Transparent;
+            this.setupGame1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.setupGame1.Location = new System.Drawing.Point(0, 0);
+            this.setupGame1.Margin = new System.Windows.Forms.Padding(0);
+            this.setupGame1.Name = "setupGame1";
+            this.setupGame1.Size = new System.Drawing.Size(600, 320);
+            this.setupGame1.TabIndex = 0;
             // 
-            // Main
+            // GameWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::Chess.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(600, 600);
-            this.Controls.Add(this.startScreen);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.ClientSize = new System.Drawing.Size(604, 331);
+            this.Controls.Add(this.setupGame1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Main";
-            this.Text = "Chess";
+            this.Name = "GameWindow";
+            this.Text = "Game";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private StartScreen startScreen;
+        private SetupGame setupGame1;
     }
 }
-
