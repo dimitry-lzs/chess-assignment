@@ -222,6 +222,7 @@
     <Compile Include="Board\Bin.Designer.cs">
       <DependentUpon>Bin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Board\SoundManager.cs" />
     <Compile Include="Figures\Bishop.cs" />
     <Compile Include="Dialogues\CastlingExplain.cs">
       <SubType>Form</SubType>

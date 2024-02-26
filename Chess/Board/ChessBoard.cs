@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Media;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Chess.Board;
 using Chess.Models;
 
 namespace Chess
@@ -16,11 +17,8 @@ namespace Chess
         public GameScreen gameScreen;
 
         public Player playingPlayer;
-        public SoundPlayer RaiseFigureSound;
-        public SoundPlayer PlaceFigureSound;
-        public SoundPlayer PromotionSound;
-        public SoundPlayer EnPassantSound;
-        public SoundPlayer CastlingSound;
+
+        public SoundManager soundManager;
 
         public bool EnPassantPerformed { get; set; }
         public bool CastlingPerformed { get; set; }
@@ -45,11 +43,7 @@ namespace Chess
             this.overlay.Location = new Point(0, 0);
             this.Controls.SetChildIndex(this.overlay, 0);
             this.FillGrid();
-            this.RaiseFigureSound = new SoundPlayer(Properties.Resources.raiseFigure);
-            this.PlaceFigureSound = new SoundPlayer(Properties.Resources.placeFigure);
-            this.PromotionSound = new SoundPlayer(Properties.Resources.promotion);
-            this.EnPassantSound = new SoundPlayer(Properties.Resources.enPassant);
-            this.CastlingSound = new SoundPlayer(Properties.Resources.castling);
+            this.soundManager = new SoundManager();
             this.Visible = true;
         }
 
@@ -202,19 +196,21 @@ namespace Chess
 
                     if (this.EnPassantPerformed)
                     {
-                        this.EnPassantSound.Play();
+                        this.soundManager.PlaySound(SoundType.EnPassant);
                         this.EnPassantPerformed = false;
                         this.ShowEnPassantExplanation();
                     }
                     else if (this.CastlingPerformed)
                     {
-                        this.CastlingSound.Play();
+                        this.soundManager.PlaySound(SoundType.Castling);
+
                         this.CastlingPerformed = false;
                         this.ShowCastlingExplanation();
                     }
                     else
                     {
-                        this.PlaceFigureSound.Play();
+                        this.soundManager.PlaySound(SoundType.PlaceFigure);
+
                     }
 
                     if (figure.Name == FigureType.Pawn)
@@ -258,7 +254,7 @@ namespace Chess
             newFigure.ImageLocation = pawn.ImageLocation;
             newFigure.Board = pawn.Board;
             this.board[pawn.X, pawn.Y].Figure = newFigure;
-            this.PromotionSound.Play();
+            this.soundManager.PlaySound(SoundType.Promotion);
         }
         public void PerformEnPassant()
         {
@@ -342,7 +338,7 @@ namespace Chess
                 this.DraggedFigure = draggedFigure;
                 this.figureLastPosition = this.DraggedFigure.ImageLocation;
                 this.updateTimer.Start();
-                this.chessBoard.RaiseFigureSound.Play();
+                this.chessBoard.soundManager.PlaySound(SoundType.RaiseFigure);
             }
         }
         private void ChessBoard_MouseMove(object sender, MouseEventArgs e)
@@ -387,7 +383,7 @@ namespace Chess
             {
                 e.Graphics.DrawImage(this.DraggedFigure.Sprite, this.DraggedFigure.ImageLocation.X, this.DraggedFigure.ImageLocation.Y, Cell.SQUARE_SIZE + 6, Cell.SQUARE_SIZE + 6);
             }
-        }
+        } 
        public Rectangle GetFigureRectangle(int pixelX, int pixelY)
         {
             return new Rectangle(pixelX, pixelY, Cell.SQUARE_SIZE + 10, Cell.SQUARE_SIZE + 10);
