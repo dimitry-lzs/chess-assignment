@@ -296,7 +296,8 @@ namespace Chess
     {
         private Figure _DraggedFigure;
         private ChessBoard chessBoard;
-
+        public Timer updateTimer;
+        public Point figureLastPosition;
         public Figure DraggedFigure
         {
             get
@@ -306,7 +307,7 @@ namespace Chess
             set
             {
                 this._DraggedFigure = value;
-                this.Refresh();
+                this.Invalidate();
             }
         }
         public DraggingCanvas(ChessBoard chessBoard)
@@ -321,6 +322,17 @@ namespace Chess
             this.MouseDown += ChessBoard_MouseDown;
             this.MouseMove += ChessBoard_MouseMove;
             this.MouseUp += ChessBoard_MouseUp;
+            this.updateTimer = new Timer();
+            this.updateTimer.Interval = 20;
+            this.updateTimer.Tick += UpdateTimer_Tick;
+        }
+        private void UpdateTimer_Tick(object sender, EventArgs e)
+        {
+            Rectangle newPosition = this.GetFigureRectangle(this.DraggedFigure.ImageLocation.X, this.DraggedFigure.ImageLocation.Y);
+            Rectangle oldPosition = this.GetFigureRectangle(this.figureLastPosition.X, this.figureLastPosition.Y);
+            Rectangle combined = Rectangle.Union(oldPosition, newPosition);
+            this.Invalidate(combined);
+            this.figureLastPosition = this.DraggedFigure.ImageLocation;
         }
         private void ChessBoard_MouseDown(object sender, MouseEventArgs e)
         {
@@ -328,6 +340,8 @@ namespace Chess
             if (draggedFigure != null && this.chessBoard.playingPlayer != null && this.chessBoard.playingPlayer.PickedColor == draggedFigure.PieceColor)
             {
                 this.DraggedFigure = draggedFigure;
+                this.figureLastPosition = this.DraggedFigure.ImageLocation;
+                this.updateTimer.Start();
                 this.chessBoard.RaiseFigureSound.Play();
             }
         }
@@ -340,7 +354,6 @@ namespace Chess
                 if (this.DraggedFigure.ImageLocation != point)
                 {
                     this.DraggedFigure.ImageLocation = point;
-                    this.Refresh();
                 }
             }
             else
@@ -362,19 +375,22 @@ namespace Chess
             {
                 this.chessBoard.PlaceFigure(this.DraggedFigure, e.X, e.Y);
                 this.DraggedFigure = null;
+                this.updateTimer.Stop();
+                this.figureLastPosition = new Point(0, 0);
             }
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            base.OnPaint(e);
             if (this.DraggedFigure == null) return;
-
             if (this.DraggedFigure.ImageLocation != Point.Empty)
             {
                 e.Graphics.DrawImage(this.DraggedFigure.Sprite, this.DraggedFigure.ImageLocation.X, this.DraggedFigure.ImageLocation.Y, Cell.SQUARE_SIZE + 6, Cell.SQUARE_SIZE + 6);
-
             }
+        }
+       public Rectangle GetFigureRectangle(int pixelX, int pixelY)
+        {
+            return new Rectangle(pixelX, pixelY, Cell.SQUARE_SIZE + 10, Cell.SQUARE_SIZE + 10);
         }
     }
 }
