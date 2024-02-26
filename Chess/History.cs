@@ -26,6 +26,11 @@ namespace Chess
         {
             this.gamesHistoryTable.AutoGenerateColumns = false;
             this.gamesHistoryTable.DataSource = this.games;
-        } 
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

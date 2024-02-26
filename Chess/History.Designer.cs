@@ -40,6 +40,7 @@
             this.BlackPlayerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WinnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Result = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.closeButton = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gamesHistoryTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -150,14 +151,29 @@
             this.Result.ReadOnly = true;
             this.Result.Width = 79;
             // 
+            // closeButton
+            // 
+            this.closeButton.AutoSize = true;
+            this.closeButton.BackColor = System.Drawing.Color.Transparent;
+            this.closeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closeButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeButton.ForeColor = System.Drawing.Color.Moccasin;
+            this.closeButton.Location = new System.Drawing.Point(67, 536);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(48, 23);
+            this.closeButton.TabIndex = 6;
+            this.closeButton.Text = "Close";
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            // 
             // History
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(87)))), ((int)(((byte)(51)))));
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = global::Chess.Properties.Resources.historyBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1004, 621);
+            this.Controls.Add(this.closeButton);
             this.Controls.Add(this.gamesHistoryTable);
             this.Controls.Add(this.historyTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -184,5 +200,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn BlackPlayerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn WinnerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Result;
+        private System.Windows.Forms.Label closeButton;
     }
 }

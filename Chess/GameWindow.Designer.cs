@@ -51,6 +51,8 @@
             this.ClientSize = new System.Drawing.Size(604, 331);
             this.Controls.Add(this.setupGame1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(620, 370);
+            this.MinimumSize = new System.Drawing.Size(620, 370);
             this.Name = "GameWindow";
             this.Text = "Game";
             this.ResumeLayout(false);

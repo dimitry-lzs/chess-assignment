@@ -50,6 +50,8 @@
             this.Controls.Add(this.startScreen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(616, 639);
+            this.MinimumSize = new System.Drawing.Size(616, 639);
             this.Name = "Main";
             this.Text = "Chess";
             this.ResumeLayout(false);

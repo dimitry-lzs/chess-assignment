@@ -21,6 +21,8 @@ namespace Chess
             Player blacksPlayer = new Player(this.blackPlayerName.Text, FigureColor.Black);
             GameScreen gameScreen = new GameScreen(whitesPlayer, blacksPlayer);
             gameScreen.Visible = false;
+            this.Parent.MaximumSize = gameScreen.Size;
+            this.Parent.MinimumSize = gameScreen.Size;
             this.Parent.ClientSize = gameScreen.Size;
             this.Parent.Controls.Add(gameScreen);
 
