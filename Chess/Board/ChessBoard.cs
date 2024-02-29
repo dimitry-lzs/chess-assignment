@@ -259,6 +259,7 @@ namespace Chess
         public void PerformEnPassant()
         {
             this.board[this.EnPassantTarget.X, this.EnPassantTarget.Y].Figure = null;
+            this.EnPassantTarget = null;
             this.EnPassantPerformed = true;
         }
         private async void ShowEnPassantExplanation()

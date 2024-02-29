@@ -267,9 +267,7 @@
     <Compile Include="Dialogues\EnPassantExplain.Designer.cs">
       <DependentUpon>EnPassantExplain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Figures\Figure.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Figures\Figure.cs" />
     <Compile Include="GameEnded.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -4,30 +4,7 @@ using System.Windows.Forms;
 
 namespace Chess
 {
-    public class NonClickablePictureBox : PictureBox
-    {
-        public NonClickablePictureBox()
-        {
-            this.SetStyle(ControlStyles.Selectable, false);
-            this.DoubleBuffered = true;
-        }
-
-        protected override void WndProc(ref Message m)
-        {
-            const int WM_NCHITTEST = 0x0084;
-            const int HTTRANSPARENT = (-1);
-
-            if (m.Msg == WM_NCHITTEST)
-            {
-                m.Result = (IntPtr)HTTRANSPARENT;
-            }
-            else
-            {
-                base.WndProc(ref m);
-            }
-        }
-    }
-    public abstract class Figure
+    public abstract class Figure : IFigure
     {
         public int X { get; set; }
         public int Y { get; set; }

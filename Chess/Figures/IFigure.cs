@@ -31,6 +31,5 @@ namespace Chess
         Image Sprite { get; }
 
         bool CanMove(int x, int y);
-        void Move(int x, int y);
     }
 }
