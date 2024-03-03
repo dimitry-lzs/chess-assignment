@@ -293,7 +293,7 @@ namespace Chess
     {
         private Figure _DraggedFigure;
         private ChessBoard chessBoard;
-        public Timer updateTimer;
+        public Timer updateTimer;   //A timer that updates the position of the sprite of the figure that is currently being dragged at a specified interval (eg. update every 20 milliseconds).
         public Point figureLastPosition;
         public Figure DraggedFigure
         {
@@ -325,11 +325,11 @@ namespace Chess
         }
         private void UpdateTimer_Tick(object sender, EventArgs e)
         {
-            Rectangle newPosition = this.GetFigureRectangle(this.DraggedFigure.ImageLocation.X, this.DraggedFigure.ImageLocation.Y);
-            Rectangle oldPosition = this.GetFigureRectangle(this.figureLastPosition.X, this.figureLastPosition.Y);
-            Rectangle combined = Rectangle.Union(oldPosition, newPosition);
-            this.Invalidate(combined);
-            this.figureLastPosition = this.DraggedFigure.ImageLocation;
+            Rectangle newPosition = this.GetFigureRectangle(this.DraggedFigure.ImageLocation.X, this.DraggedFigure.ImageLocation.Y);    //Get a rectangle with the new location of the figure image...
+            Rectangle oldPosition = this.GetFigureRectangle(this.figureLastPosition.X, this.figureLastPosition.Y);  //Get a rectangle with the old location of the figure image...
+            Rectangle combined = Rectangle.Union(oldPosition, newPosition); //With the 2 rectangles, create a new rectangle which spans to cover the area of both old rectangles...
+            this.Invalidate(combined);  //Invalidate the area covered by new rectangle, A.K.A redraw it. Now, the figures sprite has been updated to be at the location of the mouse.
+            this.figureLastPosition = this.DraggedFigure.ImageLocation; //Set 'figureLastPosition' to figure sprite's current position.
         }
         private void ChessBoard_MouseDown(object sender, MouseEventArgs e)
         {
